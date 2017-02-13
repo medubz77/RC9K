@@ -27,6 +27,7 @@ class Hexapod < Controller
 
   def lift_straight(leg)
     leg.actuate 90, 45, 110
+    puts "I effin worked"
   end
 
   def ground_straight(leg)
