@@ -1,4 +1,4 @@
-require './bots'
+require './bots.rb'
 
 include Bots
 
