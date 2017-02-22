@@ -8,7 +8,7 @@ class Hexapod < Controller
   def initialize(type=:sim)
     super(type)
     @legs = {}
-    @legs[:front_left]   = Leg3DOF.new(:left, 1, 2, 3)
+    @legs[:front_left]   = Leg3DOF.new(:left, 32, 30, 28)
     @legs[:middle_left]  = Leg3DOF.new(:left, 4, 5, 6)
     @legs[:back_left]    = Leg3DOF.new(:left, 7, 8, 9)
 
@@ -23,6 +23,10 @@ class Hexapod < Controller
   # move given leg by rotating the 3 servos by the given degrees
   def move(leg, c, f, t)
     execute @legs[leg].actuate(c, f, t)
+  end
+
+  def self.legs
+    puts "#{@side}, #{@coxa}, #{@femur}, #{@tibia}"
   end
 
   def lift_straight(leg)
@@ -47,3 +51,5 @@ class Hexapod < Controller
     end)
   end
 end
+#test_rc9k = Hexapod.new
+#test_rc9k.pry

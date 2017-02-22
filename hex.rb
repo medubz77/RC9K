@@ -132,4 +132,4 @@ class Hexapod < Controller
 end
 
 hex = Hexapod.new
-#hex.pry
+hex.pry
