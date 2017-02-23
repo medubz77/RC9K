@@ -16,6 +16,19 @@ def move(leg_num, pos_1, pos_2, pos_3)
 data = "Leg(#{leg_num},#{pos_1},#{pos_2},#{pos_3})"
 @@my_serial.write(data)
 end
+def dance
+# data = ""
+counter = [1,2,3,4,5,6]
+counter.each |c|
+leg_num = c
+pos_1 = 150
+pos_2 = 150
+pos_3 = 150
+data = "Leg(#{leg_num},#{pos_1},#{pos_2},#{pos_3})"
+puts data
+# @@my_serial.write(data)
+end
+end
 # Close serial once you're done using it
 def stop_serial
 @@my_serial.close
