@@ -39,7 +39,7 @@ leg_num = r
 pos_1 = 150
 pos_2 = 150
 pos_3 = 150
-data_reset = "Leg(#{leg_num},#{pos_1},#{pos_2}#{pos_3})"
+data_reset = "Leg(#{leg_num},#{pos_1},#{pos_2},#{pos_3})"
 @@my_serial.write(data_reset)
 puts data_reset
 sleep 1
