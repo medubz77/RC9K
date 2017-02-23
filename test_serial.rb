@@ -25,8 +25,8 @@ pos_1 = 150
 pos_2 = 150
 pos_3 = 150
 data = "Leg(#{leg_num},#{pos_1},#{pos_2},#{pos_3})"
-puts data
-# @@my_serial.write(data)
+# puts data
+@@my_serial.write(data)
 sleep 1
 end
 end
