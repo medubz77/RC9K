@@ -27,7 +27,7 @@ pos_2 = pos.sample
 pos_3 = pos.sample
 data = "Leg(#{leg_num},#{pos_1},#{pos_2},#{pos_3})"
 puts data
-#@@my_serial.write(data)
+@@my_serial.write(data)
 sleep 1
 end
 end
