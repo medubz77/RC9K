@@ -41,6 +41,8 @@ pos_2 = 150
 pos_3 = 150
 data_reset = "Leg(#{leg_num},#{pos_1},#{pos_2}#{pos_3})"
 @@my_serial.write(data_reset)
+puts data_reset
+sleep 1
 end
 end
 # Close serial once you're done using it
