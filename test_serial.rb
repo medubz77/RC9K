@@ -19,7 +19,7 @@ end
 def dance
 # data = ""
 counter = [1,2,3,4,5,6]
-counter.each |c|
+counter.each do |c|
 leg_num = c
 pos_1 = 150
 pos_2 = 150
