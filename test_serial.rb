@@ -19,14 +19,15 @@ end
 def dance
 # data = ""
 counter = [1,2,3,4,5,6]
+pos = [100,150,200]
 counter.each do |c|
 leg_num = c
-pos_1 = 150
-pos_2 = 150
-pos_3 = 150
+pos_1 = pos.sample
+pos_2 = pos.sample
+pos_3 = pos.sample
 data = "Leg(#{leg_num},#{pos_1},#{pos_2},#{pos_3})"
-# puts data
-@@my_serial.write(data)
+puts data
+#@@my_serial.write(data)
 sleep 1
 end
 end
