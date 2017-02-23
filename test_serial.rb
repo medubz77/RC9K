@@ -27,6 +27,7 @@ pos_3 = 150
 data = "Leg(#{leg_num},#{pos_1},#{pos_2},#{pos_3})"
 puts data
 # @@my_serial.write(data)
+sleep 1
 end
 end
 # Close serial once you're done using it
