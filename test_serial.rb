@@ -30,6 +30,18 @@ puts data
 @@my_serial.write(data)
 sleep 1
 end
+leg_num = nil
+pos_1 = nil
+pos_2 = nil
+pos_3 = nil
+counter.each do |r|
+leg_num = r
+pos_1 = 150
+pos_2 = 150
+pos_3 = 150
+data_reset = "Leg(#{leg_num},#{pos_1},#{pos_2}#{pos_3})"
+@@my_serial.write(data_reset)
+end
 end
 # Close serial once you're done using it
 def stop_serial
