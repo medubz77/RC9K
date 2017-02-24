@@ -35,11 +35,16 @@ puts leg
 end
 
 when "laydown"
+p1 = 180
+for p in 0..10
+p1 = p1 - 5
 @@legs.each do |num|
-leg = "Leg(#{num},150,120,120)"
+leg = "Leg(#{num},150,#{p1},#{p1})"
 puts leg
 @@my_serial.write(leg)
 
+end
+sleep 0.1
 end
 
 when "wave"
