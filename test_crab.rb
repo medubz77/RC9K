@@ -1,6 +1,6 @@
 # Require the library
 require 'rubyserial'
-class TestSerial
+class TestCrab
 # Instantiate serial
 def initialize
 #@@my_serial = Serial.new("/dev/ttyACM0", baude_rate = 115200, data_bits = 8)
@@ -19,19 +19,25 @@ data = "Leg(#{leg_num},#{pos_1},#{pos_2},#{pos_3})"
 @@my_serial.write(data)
 end
 
-def move_legs(position)
+def move(position)
 
 @@legs = [0,1,2,3,4,5]
 
 case position
 
-when "stand"
-legs = [0,1,2,3,4,5]
+when "standup"
+j1 = 150
+j2 = 150
+
+for u in 0..5
+j1 = j1 + 6
+j2 = j2 + 3
 @@legs.each do |num|
-leg = "Leg(#{num},150,180,165)"
+leg = "Leg(#{num},150,#{j1},#{j2})"
 puts leg
 @@my_serial.write(leg)
-
+end
+sleep 0.075
 end
 
 when "laydown"
@@ -42,10 +48,17 @@ p1 = p1 - 5
 leg = "Leg(#{num},150,#{p1},#{p1})"
 puts leg
 @@my_serial.write(leg)
+end
+sleep 0.075
+end
 
+when "updownX3"
+for m in 0..2
+move("standup")
+sleep 0.075
+move("laydown")
 end
-sleep 0.1
-end
+
 
 when "wave"
 
