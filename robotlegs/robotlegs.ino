@@ -82,7 +82,18 @@ if(serin.indexOf("Leg")==0)
   int middle=LegMiddle.toInt();
   int lower=LegLower.toInt();
   Serial.println("Leg " + String(leg) + " Upper " + String(upper) + " Middle " + String(middle) + " Lower " + String(lower));
- // WriteToLeg(leg, upper, middle, lower);  
+  WriteToLeg(leg, upper, middle, lower);  
+  
+}
+
+
+
+
+}
+
+  
+void WriteToLeg(int leg, int upper, int middle, int lower)
+{
 switch (leg)
   {
  case 0:  
@@ -124,21 +135,8 @@ Serial.println("Wrote to legs");
 
   }
   
-
-
 }
 
-
-
-
-}
-
-  
-/*void WriteToLeg(int leg, int upper, int middle, int lower)
-{
-  
-}
-*/
 
 
 
