@@ -4,7 +4,7 @@ class TestCrab
 # Instantiate serial
 def initialize
 #@@my_serial = Serial.new("/dev/ttyACM0", baude_rate = 115200, data_bits = 8)
-@@my_serial = Serial.new("/dev/ttyACM0", baude_rate = 115200)
+@@my_serial = Serial.new("/dev/ttyACM0", 115200)
 end
 # Get data and do whatever you want with it
 def lookie
