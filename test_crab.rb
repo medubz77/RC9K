@@ -59,6 +59,7 @@ puts leg
 end
 sleep 0.075
 end
+stop_serial
 
 when "updownX3"
 for m in 0..2
