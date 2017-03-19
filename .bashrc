@@ -115,9 +115,9 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-source /opt/ros/kinetic/setup.bash
+#source /opt/ros/kinetic/setup.bash
 
-
+cd ~
 
 # checks git repo active branch status and adds * if it's not clean
 function parse_git_dirty {
@@ -143,3 +143,4 @@ PS1+="-> ";
 
 export PS1;
 
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
