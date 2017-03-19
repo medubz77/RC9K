@@ -4,7 +4,7 @@ class TestCrab
 # Instantiate serial
 def initialize
 #@@my_serial = Serial.new("/dev/ttyACM0", baude_rate = 115200, data_bits = 8)
-@@my_serial = Serial.new("/dev/ttyACM0", 115200)
+
 end
 # Get data and do whatever you want with it
 def lookie
@@ -21,41 +21,44 @@ end
 
 def move(position)
 
-@@legs = [0,1,2,3,4,5]
-
+legs = [0,1,2,3,4,5]
+my_serial = Serial.new("/dev/ttyACM0", 115200)
 case position
 
 when "reset"
-  @@legs.each do |num|
+  legs.each do |num|
   leg = "Leg(#{num},150,150,150)"
   puts leg
-  @@my_serial.write(leg)
+  my_serial.write(leg)
   end
+  stop_serial
 
 when "standup"
 j1 = 150
 j2 = 150
-
+my_serial = Serial.new("/dev/ttyACM0", 115200)
 for u in 0..5
 j1 = j1 + 6
 j2 = j2 + 1.5
-@@legs.each do |num|
+legs.each do |num|
 leg = "Leg(#{num},150,#{j1},#{j2})"
 puts leg
-@@my_serial.write(leg)
+my_serial.write(leg)
 end
 sleep 0.075
 end
+stop_serial
 
 when "laydown"
 p1 = 5
 p2 = 3
+my_serial = Serial.new("/dev/ttyACM0", 115200)
 for p in 0..10
 p1 = p1 - 5
-@@legs.each do |num|
+legs.each do |num|
 leg = "Leg(#{num},150,#{p1},#{p1})"
 puts leg
-@@my_serial.write(leg)
+my_serial.write(leg)
 end
 sleep 0.075
 end
