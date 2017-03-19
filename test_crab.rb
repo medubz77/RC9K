@@ -31,7 +31,7 @@ when "reset"
   puts leg
   my_serial.write(leg)
   end
-  stop_serial
+  my_serial.close
 
 when "standup"
 j1 = 150
@@ -47,7 +47,7 @@ my_serial.write(leg)
 end
 sleep 0.075
 end
-stop_serial
+my_serial.close
 
 when "laydown"
 p1 = 5
@@ -62,7 +62,7 @@ my_serial.write(leg)
 end
 sleep 0.075
 end
-stop_serial
+my_serial.close
 
 when "updownX3"
 for m in 0..2
