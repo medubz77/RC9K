@@ -31,7 +31,7 @@ j2 = 150
 
 for u in 0..5
 j1 = j1 + 6
-j2 = j2 + 3
+j2 = j2 + 1.5
 @@legs.each do |num|
 leg = "Leg(#{num},150,#{j1},#{j2})"
 puts leg
@@ -41,7 +41,8 @@ sleep 0.075
 end
 
 when "laydown"
-p1 = 180
+p1 = 5
+p2 = 3
 for p in 0..10
 p1 = p1 - 5
 @@legs.each do |num|
@@ -123,3 +124,4 @@ def stop_serial
 @@my_serial = nil
 end
 end
+test = TestCrab.new
