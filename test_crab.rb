@@ -22,10 +22,11 @@ end
 def move(position)
 
 legs = [0,1,2,3,4,5]
-my_serial = Serial.new("/dev/ttyACM0", 115200)
+
 case position
 
 when "reset"
+  my_serial = Serial.new("/dev/ttyACM0", 115200)
   legs.each do |num|
   leg = "Leg(#{num},150,150,150)"
   puts leg
