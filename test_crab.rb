@@ -25,6 +25,13 @@ def move(position)
 
 case position
 
+when "reset"
+  @@legs.each do |num|
+  leg = "Leg(#{num},150,150,150)"
+  puts leg
+  @@my_serial.write(leg)
+  end
+
 when "standup"
 j1 = 150
 j2 = 150
