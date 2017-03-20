@@ -1,6 +1,6 @@
 # Require the library
 require 'rubyserial'
-class TestCrab
+class Crab
 # Instantiate serial
 def initialize
 #@@my_serial = Serial.new("/dev/ttyACM0", baude_rate = 115200, data_bits = 8)
