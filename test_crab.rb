@@ -40,8 +40,8 @@ when "standup"
  #for u in 0..5
  i=0
  while i < 5
- j1 = j1 + 5
- j2 = j2 + 2
+ j1+=5
+ j2+=2
  legs.each do |num|
  leg = "Leg(#{num},150,#{j1},#{j2})"
  puts "#{i}"
@@ -55,14 +55,16 @@ my_serial.close
 
 when "laydown"
 legs = [0,1,2,3,4,5]
-
+j1 = 150
+j2 = 150
 my_serial = Serial.new("/dev/ttyACM0", 115200)
 #for p in 0..6
 i=0
 while i < 5
-p1 = p1 - 4
+j1 = j1 - 5
+j2 = j2 - 2
 legs.each do |num|
-leg = "Leg(#{num},150,#{p1},#{p2})"
+leg = "Leg(#{num},150,#{j1},#{j2})"
 puts leg
 my_serial.write(leg)
 i+=1
