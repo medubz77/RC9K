@@ -21,11 +21,10 @@ end
 
 def move(position)
 
-legs = [0,1,2,3,4,5]
-
 case position
 
 when "reset"
+  legs = [0,1,2,3,4,5]
   my_serial = Serial.new("/dev/ttyACM0", 115200)
   legs.each do |num|
   leg = "Leg(#{num},150,150,150)"
@@ -35,22 +34,24 @@ when "reset"
   my_serial.close
 
 when "standup"
-j1 = 150
-j2 = 150
-my_serial = Serial.new("/dev/ttyACM0", 115200)
-for u in 0..5
-j1 = j1 + 6
-j2 = j2 + 1.5
-legs.each do |num|
-leg = "Leg(#{num},150,#{j1},#{j2})"
-puts leg
-my_serial.write(leg)
-end
-sleep 0.075
+ legs = [0,1,2,3,4,5]
+ j1 = 150
+ j2 = 150
+ my_serial = Serial.new("/dev/ttyACM0", 115200)
+ for u in 0..5
+ j1 = j1 + 6
+ j2 = j2 + 1.5
+ legs.each do |num|
+ leg = "Leg(#{num},150,#{j1},#{j2})"
+ puts leg
+ my_serial.write(leg)
+ end
+ sleep 0.075
 end
 my_serial.close
 
 when "laydown"
+legs = [0,1,2,3,4,5]
 p1 = 5
 p2 = 3
 my_serial = Serial.new("/dev/ttyACM0", 115200)
