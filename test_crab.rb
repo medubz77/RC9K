@@ -145,5 +145,5 @@ def stop_serial
 @@my_serial = nil
 end
 crab = Crab.new
-crab.move("laydown")
+crab.move("standup")
 end
