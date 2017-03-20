@@ -8,8 +8,7 @@ def initialize
 end
 # Get data and do whatever you want with it
 def lookie
-size = 1024
-data = @@my_serial.read(size)
+
 end
 
 # Set leg and positions for manual moving of the leg(s).
@@ -55,7 +54,7 @@ legs = [0,1,2,3,4,5]
 p1 = 5
 p2 = 3
 my_serial = Serial.new("/dev/ttyACM0", 115200)
-for p in 0..10
+for p in 0..6
 p1 = p1 - 5
 legs.each do |num|
 leg = "Leg(#{num},150,#{p1},#{p1})"
