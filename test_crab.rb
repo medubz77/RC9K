@@ -135,5 +135,5 @@ def stop_serial
 @@my_serial.close
 @@my_serial = nil
 end
-test = TestCrab.new
+crab = Crab.new
 end
