@@ -40,8 +40,8 @@ when "standup"
  #for u in 0..5
  i=0
  while i < 5
- j1+=5
- j2+=2
+ j1+=6
+ j2+=3
  legs.each do |num|
  leg = "Leg(#{num},150,#{j1},#{j2})"
  puts "#{i}"
