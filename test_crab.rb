@@ -55,8 +55,7 @@ my_serial.close
 
 when "laydown"
 legs = [0,1,2,3,4,5]
-p1 = 5
-p2 = 3
+
 my_serial = Serial.new("/dev/ttyACM0", 115200)
 #for p in 0..6
 i=0
