@@ -13,11 +13,11 @@ data = @@my_serial.read(size)
 end
 
 # Set leg and positions for manual moving of the leg(s).
-def move(leg_num, pos_1, pos_2, pos_3)
+#def move(leg_num, pos_1, pos_2, pos_3)
 # data = ""
-data = "Leg(#{leg_num},#{pos_1},#{pos_2},#{pos_3})"
-@@my_serial.write(data)
-end
+#data = "Leg(#{leg_num},#{pos_1},#{pos_2},#{pos_3})"
+#@@my_serial.write(data)
+#end
 
 def move(position)
 
