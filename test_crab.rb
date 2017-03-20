@@ -38,17 +38,18 @@ when "standup"
  j2 = 150
  my_serial = Serial.new("/dev/ttyACM0", 115200)
  #for u in 0..5
- i=1
- while i < 6
+ i=0
+ while i < 5
  j1 = j1 + 5
- j2 = j2 + 1
+ j2 = j2 + 2
  legs.each do |num|
  leg = "Leg(#{num},150,#{j1},#{j2})"
+ puts "#{i}"
  puts leg
  my_serial.write(leg)
  i+=1
+ sleep 0.002
  end
- sleep 0.075
 end
 my_serial.close
 
@@ -57,21 +58,25 @@ legs = [0,1,2,3,4,5]
 p1 = 5
 p2 = 3
 my_serial = Serial.new("/dev/ttyACM0", 115200)
-for p in 0..6
+#for p in 0..6
+i=0
+while i < 5
 p1 = p1 - 4
 legs.each do |num|
-leg = "Leg(#{num},150,#{p1},#{p1})"
+leg = "Leg(#{num},150,#{p1},#{p2})"
 puts leg
 my_serial.write(leg)
+i+=1
+sleep 0.002
 end
-sleep 0.075
+
 end
 my_serial.close
 
 when "updownX3"
-for m in 0..2
+for m in 0..4
 move("standup")
-sleep 0.075
+sleep 1
 move("laydown")
 end
 
@@ -139,4 +144,5 @@ def stop_serial
 @@my_serial = nil
 end
 crab = Crab.new
+crab.move("laydown")
 end
