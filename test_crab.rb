@@ -4,19 +4,14 @@ class Crab
 # Instantiate serial
 def initialize
 #@@my_serial = Serial.new("/dev/ttyACM0", baude_rate = 115200, data_bits = 8)
-
+@@j1 = 150
+@@j2 = 140
+@@j3 = 144
 end
 # Get data and do whatever you want with it
 def lookie
 
 end
-
-# Set leg and positions for manual moving of the leg(s).
-#def move(leg_num, pos_1, pos_2, pos_3)
-# data = ""
-#data = "Leg(#{leg_num},#{pos_1},#{pos_2},#{pos_3})"
-#@@my_serial.write(data)
-#end
 
 def move(position)
 
@@ -26,83 +21,120 @@ when "reset"
   legs = [0,1,2,3,4,5]
   my_serial = Serial.new("/dev/ttyACM0", 115200)
   legs.each do |num|
-  leg = "Leg(#{num},150,150,150)"
+  leg = "Leg(#{num},150,140,144)"
   puts leg
   my_serial.write(leg)
+  sleep 0.2
   end
+  puts "Reset Position"
+  @@j1 = 150
+  @@j2 = 140
+  @@j3 = 144
   my_serial.close
 
 when "standup"
  legs = [0,1,2,3,4,5]
- j1 = 150
- j2 = 150
+ @@j2 = 140
+ @@j3 = 144
  my_serial = Serial.new("/dev/ttyACM0", 115200)
- #for u in 0..5
  i=0
  while i < 5
- j1+=5
- j2+=2
+ @@j2+=6
+ @@j3+=5
  legs.each do |num|
- leg = "Leg(#{num},150,#{j1},#{j2})"
+ leg = "Leg(#{num},#{@@j1},#{@@j2},#{@@j3})"
  puts "#{i}"
  puts leg
  my_serial.write(leg)
- i+=1
- sleep 0.002
+ sleep 0.01
  end
+ i+=1
 end
+puts "I'm Standing!"
 my_serial.close
 
 when "laydown"
-legs = [0,1,2,3,4,5]
-j1 = 150
-j2 = 150
 my_serial = Serial.new("/dev/ttyACM0", 115200)
-#for p in 0..6
+puts "already laying down"
+legs = [0,1,2,3,4,5]
 i=0
 while i < 5
-j1 = j1 - 5
-j2 = j2 - 2
+@@j2 = @@j2 - 6
+@@j3 = @@j3 - 5
 legs.each do |num|
-leg = "Leg(#{num},150,#{j1},#{j2})"
+leg = "Leg(#{num},#{@@j1},#{@@j2},#{@@j3})"
 puts leg
 my_serial.write(leg)
+sleep 0.05
+end
 i+=1
-sleep 0.002
 end
-
-end
+puts "Laying Down"
 my_serial.close
 
-when "updownX3"
+when "updownX5"
 for m in 0..4
 move("standup")
-sleep 1
+sleep 0.15
 move("laydown")
 end
 
+when "frontstand"
+move("reset")
+sleep 0.05
+my_serial = Serial.new("/dev/ttyACM0", 115200)
+legs = [2,3,4,5]
+i=0
+while i < 8
+@@j2+=4
+@@j3+=3
+legs.each do |num|
+leg = "Leg(#{num},#{@@j1},#{@@j2},#{@@j3})"
+my_serial.write(leg)
+puts leg
+sleep 0.015
+end
+i+=1
+end
+my_serial.close
+
+
+
 
 when "wave"
-
-alt_legs = [0,2,4,5,3,1]
-alt_legs.each do |num|
-leg = "Leg(#{num},150,180,165)"
+move("frontstand")
+sleep 0.1
+my_serial = Serial.new("/dev/ttyACM0", 115200)
+i=0
+leg_num = 5
+@@j2 = 109
+while i < 4
+@@j3 = @@j3 - 35
+leg = "Leg(#{leg_num},#{@@j1},#{@@j2},#{@@j3})"
+my_serial.write(leg)
 puts leg
-@@my_serial.write(leg)
+puts "wave up"
 sleep 0.25
+@@j3 = @@j3+=35
+leg = "Leg(#{leg_num},#{@@j1},#{@@j2},#{@@j3})"
+my_serial.write(leg)
+puts leg
+puts "wave down"
+i+=1
+sleep 0.25
+
 end
 sleep 1
+@@j1 = 150
+@@j2 = 170
+@@j3 = 169
+leg = "Leg(#{leg_num},#{@@j1},#{@@j2},#{@@j3})"
+my_serial.write(leg)
 
-alt_legs = [1,3,5,4,2,0]
-alt_legs.each do |num|
-leg = "Leg(#{num},150,120,120)"
-puts leg
-@@my_serial.write(leg)
-sleep 0.25
-
+move("laydown")
+move("reset")
 end
 
-end
 
 end
 
@@ -140,10 +172,10 @@ end
 
 end
 # Close serial once you're done using it
-def stop_serial
-@@my_serial.close
-@@my_serial = nil
-end
-crab = Crab.new
-crab.move("standup")
+#def stop_serial
+#@@my_serial.close
+#@@my_serial = nil
+#end
+#crab = Crab.new
+#crab.move("standup")
 end
