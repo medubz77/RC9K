@@ -1,0 +1,26 @@
+22 rear left lower T    0
+24 rear left midde F
+26 rear left upper C
+
+46 rear right lower *   1
+48 rear right middle *
+50 rear right upper
+
+34 middle left lower   2
+36 middle left middle	*
+38 middle left upper	*
+
+40 middle right lower   3
+42 middle right middle	*
+44 middle right upper	*
+
+28 front left lower   4
+30 front left middle
+32 front left upper
+
+52 front right lower	*   5
+2  front right middle
+3  front right upper
+
+
+vncserver :1 -geometry 1280x1024 -depth 16 -pixelformat rgb565
