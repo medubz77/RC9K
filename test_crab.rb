@@ -80,44 +80,48 @@ when "reset"
   my_serial.close
 
 when "standup"
- legs = [0,1,2,3,4,5]
- @@j2 = 140
- @@j3 = 144
- my_serial = Serial.new("/dev/ttyACM0", 115200)
- i=0
- while i < 5
- @@j2+=6
- @@j3+=5
- legs.each do |num|
- leg = "Leg(#{num},#{@@j1},#{@@j2},#{@@j3})"
- puts "#{i}"
- puts leg
- my_serial.write(leg)
- sleep 0.01
- end
- i+=1
-end
+standpos =[150,170,169,150,170,169,150,170,169,150,170,169,150,170,169,150,170,169]
+writetolegs(standpos, 5, 0.3)
+# legs = [0,1,2,3,4,5]
+# @@j2 = 140
+# @@j3 = 144
+# my_serial = Serial.new("/dev/ttyACM0", 115200)
+# i=0
+# while i < 5
+# @@j2+=6
+# @@j3+=5
+# legs.each do |num|
+# leg = "Leg(#{num},#{@@j1},#{@@j2},#{@@j3})"
+# puts "#{i}"
+# puts leg
+# my_serial.write(leg)
+# sleep 0.01
+# end
+# i+=1
+# end
 puts "I'm Standing!"
-my_serial.close
+#my_serial.close
 
 when "laydown"
-my_serial = Serial.new("/dev/ttyACM0", 115200)
-puts "already laying down"
-legs = [0,1,2,3,4,5]
-i=0
-while i < 5
-@@j2 = @@j2 - 6
-@@j3 = @@j3 - 5
-legs.each do |num|
-leg = "Leg(#{num},#{@@j1},#{@@j2},#{@@j3})"
-puts leg
-my_serial.write(leg)
-sleep 0.05
-end
-i+=1
-end
+standpos =[150,140,144,150,140,144,150,140,144,150,140,144,150,140,144,150,140,144]
+writetolegs(standpos, 5, 0.3)
+#my_serial = Serial.new("/dev/ttyACM0", 115200)
+#puts "already laying down"
+#legs = [0,1,2,3,4,5]
+#i=0
+#while i < 5
+#@@j2 = @@j2 - 6
+#@@j3 = @@j3 - 5
+#legs.each do |num|
+#leg = "Leg(#{num},#{@@j1},#{@@j2},#{@@j3})"
+#puts leg
+#my_serial.write(leg)
+#sleep 0.05
+#end
+#i+=1
+#end
 puts "Laying Down"
-my_serial.close
+#my_serial.close
 
 when "updownX5"
 for m in 0..4
