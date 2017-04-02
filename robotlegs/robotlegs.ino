@@ -76,12 +76,12 @@ if(serin.indexOf("Leg")==0)
   String LegMiddle=serin.substring(10,13);
   String LegLower=serin.substring(14,17);  //thanks waldo!
   
-  Serial.println(serin);
+  //Serial.println(serin);
   int leg=LegNumber.toInt();
   int upper=LegUpper.toInt();
   int middle=LegMiddle.toInt();
   int lower=LegLower.toInt();
-  Serial.println("I am getting Leg " + String(leg) + " Upper " + String(upper) + " Middle " + String(middle) + " Lower " + String(lower));
+ // Serial.println("I am getting Leg " + String(leg) + " Upper " + String(upper) + " Middle " + String(middle) + " Lower " + String(lower));
   WriteToLeg(leg, upper, middle, lower);  
   
 }
@@ -134,7 +134,7 @@ switch (leg)
   break;
 
   }
-  Serial.println("Wrote to "+String(leg)+ ","+String(upper*10)+","+String(middle*10)+","+String(lower*10));
+ // Serial.println("Wrote to "+String(leg)+ ","+String(upper*10)+","+String(middle*10)+","+String(lower*10));
 
 }
 
