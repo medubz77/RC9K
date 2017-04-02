@@ -7,9 +7,56 @@ def initialize
 @@j1 = 150
 @@j2 = 140
 @@j3 = 144
+$legs =[150, 140, 144,150, 140, 144,150, 140, 144,150, 140, 144,150, 140, 144,150, 140, 144]
+$tomove=[150, 140, 144,150, 140, 144,150, 140, 144,150, 140, 144,150, 140, 144,150, 140, 144]
+$periter=[150, 140, 144,150, 140, 144,150, 140, 144,150, 140, 144,150, 140, 144,150, 140, 144]
+$test1=[100, 100, 100,100, 100, 100,100, 100, 100,100, 100, 100,100, 100, 100,100, 100, 100]
+$test2=[200, 200, 200,200, 200, 200,200, 200,200,200, 200, 200,200, 200, 200,200, 200, 200]
 end
 # Get data and do whatever you want with it
 def lookie
+
+end
+
+def writetolegs(pos, steps, time)
+ # my_serial = Serial.new("/dev/ttyACM0", 115200)
+ inarray=0
+ $legs.each do
+	$tomove[inarray]=pos[inarray]-$legs[inarray]
+	inarray+=1
+end 
+inarray=0
+ $tomove.each do
+ $periter[inarray]=$tomove[inarray]/steps
+ inarray +=1
+ end
+
+while steps>0
+sleep time
+steps=steps-1
+inarray=0
+ $legs.each do
+	$legs[inarray]+=$periter[inarray]
+	inarray+=1
+end 
+# my_serial.write("Leg(0,$legs[0],$legs[1],$legs[2])")
+# my_serial.write("Leg(1,$legs[3],$legs[4],$legs[5])")
+# my_serial.write("Leg(2,$legs[6],$legs[7],$legs[8])")
+# my_serial.write("Leg(3,$legs[9],$legs[10],$legs[11])")
+# my_serial.write("Leg(4,$legs[12],$legs[13],$legs[14])")
+# my_serial.write("Leg(5,$legs[15],$legs[16],$legs[17])")
+
+
+puts "Leg(0,#{$legs[0]},#{$legs[1]},#{$legs[2]})"
+puts "Leg(1,#{$legs[3]},#{$legs[4]},#{$legs[5]})"
+puts "Leg(2,#{$legs[6]},#{$legs[7]},#{$legs[8]})"
+puts "Leg(3,#{$legs[9]},#{$legs[10]},#{$legs[11]})"
+puts "Leg(4,#{$legs[12]},#{$legs[13]},#{$legs[14]})"
+puts "Leg(5,#{$legs[15]},#{$legs[16]},#{$legs[17]})"
+
+puts steps
+end
+#my_serial.close
 
 end
 
