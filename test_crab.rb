@@ -121,13 +121,13 @@ def move(position)
 case position
 
 when "standup"
-standpos = [150,155,200,150,155,200,150,155,200,150,155,200,150,155,200,150,155,200]
+standpos = [150,130,212,150,130,212,150,130,212,150,130,212,150,130,212,150,130,212]
 writetolegs(standpos, 1, 0)
 puts "I'm Standing!"
 
 when "laydown"
 laydownpos = [150,140,144,150,140,144,150,140,144,150,140,144,150,140,144,150,140,144]
-writetolegs(laydownpos, 4, 0.1)
+writetolegs(laydownpos, 5, 0.1)
 puts "Laying Down"
 
 when "frontstand"
@@ -135,11 +135,11 @@ fstand = [150,140,144,150,140,144,150,156,156,150,156,156,150,172,168,150,172,16
 writetolegs(fstand,1,0)
 
 when "tripodright"
-tresright = [150,100,144,150,155,200,150,155,200,150,100,144,150,100,144,150,155,200]
+tresright = [150,100,144,150,130,212,150,130,212,150,100,144,150,100,144,150,130,212]
 writetolegs(tresright,1,0)
 
 when "tripodleft"
-tresleft = [150,155,200,150,100,144,150,100,144,150,155,200,150,155,200,150,100,144]
+tresleft = [150,130,212,150,100,144,150,100,144,150,130,212,150,130,212,150,100,144]
 writetolegs(tresleft,1,0)
 
 when "updownX5"
