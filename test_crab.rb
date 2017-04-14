@@ -9,8 +9,17 @@ $periter=[150, 140, 144,150, 140, 144,150, 140, 144,150, 140, 144,150, 140, 144,
 
 end
 # Get data and do whatever you want with it
-def lookie
+def start_video
+# $v_pid = spawn '/home/pi/rc9k/vlc_stream.sh'
+$v_pid = fork do
+  cmd = 'raspivid -o - -t 0 -w 640 -h 360 -fps 25|cvlc -vvv stream:///dev/stdin --sout \'#rtp{sdp=rtsp://:8554/}\' :demux=h264'
+  exec cmd
+end 
+end
 
+def die_video_die
+#Process.kill('INT', $v_pid)
+Process.kill(9 ,$v_pid)
 end
 
 def test_legs(pos1, pos2, pos3)
@@ -25,6 +34,20 @@ end
 my_serial.close
 my_serial = nil
 end
+
+def test_leg(leg,pos1, pos2, pos3)
+my_serial = Serial.new("/dev/ttyACM0", 115200)
+#legs = [0,1,2,3,4,5]
+#legs.each do |leg|
+move_leg = "Leg(#{leg},#{pos1},#{pos2},#{pos3})"
+my_serial.write(move_leg)
+puts "#{move_leg}"
+#sleep 0.05
+#end
+my_serial.close
+my_serial = nil
+end
+
 
 def writetolegs(pos, steps, time)
  my_serial = Serial.new("/dev/ttyACM0", 115200)
@@ -71,11 +94,11 @@ sleep 0.5
 move("tripodright")
 while steps > 0
 steps = steps - 1
-walk_right = [170,140,144,170,170,169,130,170,169,130,140,144,170,140,144,170,170,169]
+walk_right = [170,140,144,150,130,212,130,170,169,130,140,144,170,140,144,170,170,169]
 writetolegs(walk_right,1,0)
 puts "walked right"
 sleep 0.5
-poise_right = [170,170,169,170,170,169,130,170,169,130,170,169,170,170,169,170,170,169]
+poise_right = [170,170,169,170,130,212,130,170,169,130,170,169,170,170,169,170,170,169]
 writetolegs(poise_right,1,0)
 puts "poised right"
 sleep 0.7
@@ -204,4 +227,5 @@ end
 #end
 #crab = Crab.new
 #crab.move("standup")
+
 end
