@@ -81,7 +81,7 @@ my_serial.write("Leg(3,#{$legs[9]},#{$legs[10]},#{$legs[11]})")
 my_serial.write("Leg(4,#{$legs[12]},#{$legs[13]},#{$legs[14]})")
 
 my_serial.write("Leg(5,#{$legs[15]},#{$legs[16]},#{$legs[17]})")
-sleep 0.05
+sleep 0.025
 puts steps
 end
 my_serial.close
