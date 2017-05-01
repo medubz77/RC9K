@@ -14,7 +14,6 @@ def initialize
 	$j2d=120
 	$j3u=180
 	$j3d=230
-
 	$legs =[150, 140, 144,150, 140, 144,150, 140, 144,150, 140, 144,150, 140, 144,150, 140, 144]
 	$tomove=[150, 140, 144,150, 140, 144,150, 140, 144,150, 140, 144,150, 140, 144,150, 140, 144]
 	$periter=[150, 140, 144,150, 140, 144,150, 140, 144,150, 140, 144,150, 140, 144,150, 140, 144]
@@ -40,7 +39,7 @@ def test_legs(pos1, pos2, pos3)
 	legs = [0,1,2,3,4,5]
 	legs.each do |leg|
 		move_leg = "Leg(#{leg},#{pos1},#{pos2},#{pos3})"
-		my_serial.write(move_leg) 
+		my_serial.write(move_leg)
 		puts "#{move_leg}"
 		sleep 0.05
 	end
@@ -69,7 +68,7 @@ def writetolegs(pos, steps, time)
 	$legs.each do
 		$tomove[inarray]=pos[inarray]-$legs[inarray]
 		inarray+=1
-	end 
+	end
 	inarray=0
 	$tomove.each do
 		$periter[inarray]=$tomove[inarray]/(steps+1)
@@ -82,14 +81,14 @@ def writetolegs(pos, steps, time)
 		$legs.each do
 			$legs[inarray]+=$periter[inarray]
 			inarray+=1
-		end 
+		end
 		my_serial.write("Leg(0,#{$legs[0]},#{$legs[1]},#{$legs[2]})")
 
 		my_serial.write("Leg(1,#{$legs[3]},#{$legs[4]},#{$legs[5]})")
 
 		my_serial.write("Leg(2,#{$legs[6]},#{$legs[7]},#{$legs[8]})")
 
-		my_serial.write("Leg(3,#{$legs[9]},#{$legs[10]},#{$legs[11]})")	
+		my_serial.write("Leg(3,#{$legs[9]},#{$legs[10]},#{$legs[11]})")
 
 		my_serial.write("Leg(4,#{$legs[12]},#{$legs[13]},#{$legs[14]})")
 
