@@ -7,16 +7,16 @@ class Crab
 def initialize
 
 # leg position costants
-	$j1l=170
+	$j1l=120
 	$j1m=150
-	$j1r=130
-	$j2u=100
+	$j1r=180
+	$j2u=150
 	$j2d=120
-	$j3u=180
+	$j3u=140
 	$j3d=230
-	$legs =[150, 140, 144,150, 140, 144,150, 140, 144,150, 140, 144,150, 140, 144,150, 140, 144]
-	$tomove=[150, 140, 144,150, 140, 144,150, 140, 144,150, 140, 144,150, 140, 144,150, 140, 144]
-	$periter=[150, 140, 144,150, 140, 144,150, 140, 144,150, 140, 144,150, 140, 144,150, 140, 144]
+	$legs=[150, 150, 140,150, 150, 140,150, 150, 140, 150, 150, 140,150, 150, 140,150, 150, 140]
+	$tomove=[150, 150, 140,150, 150, 140,150, 150, 140, 150, 150, 140,150, 150, 140,150, 150, 140]
+	$periter=[150, 150, 140,150, 150, 140,150, 150, 140, 150, 150, 140,150, 150, 140,150, 150, 140]
 
 end
 # Get data and do whatever you want with it
@@ -151,19 +151,42 @@ def reset
 	puts "Reset Position"
 end
 
-def move(position)
-
-case position
-
-when "standup"
+def stand
 	standpos = [$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d]
 	writetolegs(standpos, 1, 0)
 	puts "I'm Standing!"
+end
 
-when "laydown"
-	laydownpos = [150,140,144,150,140,144,150,140,144,150,140,144,150,140,144,150,140,144]
+def laydown
+	laydownpos = [$j1m,$j2u,$j3u,$j1m,$j2u,$j3u,$j1m,$j2u,$j3u,$j1m,$j2u,$j3u,$j1m,$j2u,$j3u,$j1m,$j2u,$j3u]
 	writetolegs(laydownpos, 5, 0.1)
 	puts "Laying Down"
+end
+
+def attack
+	standpos = [$j1m,$j2u,$j3u,$j1m,$j2u,$j3u,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2u,$j3u,$j1m,$j2u,$j3u]
+	writetolegs(standpos, 1, 0)
+	puts "I'm Attacking!"	
+end
+
+def switch
+	for m in 0..4
+		movement = [$j1r,$j2d,$j3d,$j1l,$j2d,$j3d,$j1r,$j2d,$j3d,$j1l,$j2d,$j3d,$j1r,$j2d,$j3d,$j1l,$j2d,$j3d]
+		writetolegs(movement, 1, 0)
+		sleep 0.25
+		movement = [$j1l,$j2d,$j3d,$j1r,$j2d,$j3d,$j1l,$j2d,$j3d,$j1r,$j2d,$j3d,$j1l,$j2d,$j3d,$j1r,$j2d,$j3d]
+		writetolegs(movement, 1, 0)
+		puts "I'm Switching!"	
+		sleep 0.25
+	end	
+	stand	
+end
+
+
+
+def move(position)
+
+case position
 
 when "frontstand"
 	fstand = [150,140,144,150,140,144,150,156,156,150,156,156,150,172,168,150,172,168]
@@ -179,22 +202,22 @@ when "tripodleft"
 
 when "updownX5"
 	for m in 0..4
-		move("standup")
-		sleep 0.3
-		move("laydown")
-		sleep 0.3
+		stand
+		sleep 0.5
+		laydown
+		sleep 0.25
 	end
 
 when "lift3legs"
-	move("standup")
+	stand
 	sleep 1
 	move("tripodright")
-	sleep 1
-	move("standup")
+	sleep 0.5
+	stand
 	sleep 1
 	move("tripodleft")
-	sleep 1
-	move("laydown")
+	sleep 0.5
+	laydown
 
 when "wave"
 	move("frontstand")
