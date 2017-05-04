@@ -1,5 +1,7 @@
 # Require the library
 require 'rubyserial'
+# Require CSV for CSV functionality
+require 'csv'
 
 class Crab
 
@@ -19,6 +21,11 @@ def initialize
 	$periter=[150, 150, 140,150, 150, 140,150, 150, 140, 150, 150, 140,150, 150, 140,150, 150, 140]
 
 end
+# Read calibration configuration file (CSV) and set leg's up and down global values.
+def calibrate
+
+end
+
 # Get data and do whatever you want with it
 def start_video
 # $v_pid = spawn '/home/pi/rc9k/vlc_stream.sh'
@@ -166,7 +173,7 @@ end
 def attack
 	standpos = [$j1m,$j2u,$j3u,$j1m,$j2u,$j3u,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2u,$j3u,$j1m,$j2u,$j3u]
 	writetolegs(standpos, 1, 0)
-	puts "I'm Attacking!"	
+	puts "I'm Attacking!"
 end
 
 def switch
@@ -176,10 +183,10 @@ def switch
 		sleep 0.25
 		movement = [$j1l,$j2d,$j3d,$j1r,$j2d,$j3d,$j1l,$j2d,$j3d,$j1r,$j2d,$j3d,$j1l,$j2d,$j3d,$j1r,$j2d,$j3d]
 		writetolegs(movement, 1, 0)
-		puts "I'm Switching!"	
+		puts "I'm Switching!"
 		sleep 0.25
-	end	
-	stand	
+	end
+	stand
 end
 
 
