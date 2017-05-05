@@ -16,14 +16,17 @@ def initialize
 	$j2d=120
 	$j3u=140
 	$j3d=230
-	$legs=[150, 150, 140,150, 150, 140,150, 150, 140, 150, 150, 140,150, 150, 140,150, 150, 140]
+	#$legs=[150, 150, 140,150, 150, 140,150, 150, 140, 150, 150, 140,150, 150, 140,150, 150, 140]
+	$legs = []
 	$tomove=[150, 150, 140,150, 150, 140,150, 150, 140, 150, 150, 140,150, 150, 140,150, 150, 140]
 	$periter=[150, 150, 140,150, 150, 140,150, 150, 140, 150, 150, 140,150, 150, 140,150, 150, 140]
 
 end
-# Read calibration configuration file (CSV) and set leg's up and down global values.
+# Read calibration configuration file (CSV) and set $legs' global values.
 def calibrate
-
+	legs = File.open('calibration.conf', &:readline)
+	$legs = legs.split(",").map(&:to_i)
+	puts "#{$legs}"
 end
 
 # Get data and do whatever you want with it
