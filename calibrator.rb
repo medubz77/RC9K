@@ -21,7 +21,7 @@ class Calibrator
   end
 # Write values to csv file
   def write
-File.open('calibration.conf', 'w') { |file| file.write(@@leg_string) }
+File.open('calibration.conf', 'w') { |file| file.write(@@leg_string.chop) }
 #    CSV.open('calibration.conf.csv', 'w') do |csv_conf|
 #      @@leg_array.each do |row_array|
 #       csv_conf = row_array
