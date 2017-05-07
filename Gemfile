@@ -9,4 +9,4 @@ gem 'net-ssh'
 # Install ping support
 gem 'net-ping'
 gem 'sqlite3'
-gem 'green_shoes'
+#gem 'green_shoes'
