@@ -15,7 +15,7 @@ def initialize
 	$j2u=150
 	$j2d=120
 	$j3u=140
-	$j3d=230
+	$j3d=227
 	$legs=[150, 150, 140,150, 150, 140,150, 150, 140, 150, 150, 140,150, 150, 140,150, 150, 140]
 	#$legs = []
 	$tomove=[150, 150, 140,150, 150, 140,150, 150, 140, 150, 150, 140,150, 150, 140,150, 150, 140]
@@ -162,21 +162,28 @@ def reset
 end
 
 def stand
-	standpos = [$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d]
-	writetolegs(standpos, 1, 0)
+	stand_pos = [$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d]
+	writetolegs(stand_pos, 1, 0)
 	puts "I'm Standing!"
 end
 
 def laydown
-	laydownpos = [$j1m,$j2u,$j3u,$j1m,$j2u,$j3u,$j1m,$j2u,$j3u,$j1m,$j2u,$j3u,$j1m,$j2u,$j3u,$j1m,$j2u,$j3u]
-	writetolegs(laydownpos, 5, 0.1)
+	laydown_pos = [$j1m,$j2u,$j3u,$j1m,$j2u,$j3u,$j1m,$j2u,$j3u,$j1m,$j2u,$j3u,$j1m,$j2u,$j3u,$j1m,$j2u,$j3u]
+	writetolegs(laydown_pos, 5, 0.1)
 	puts "Laying Down"
 end
 
 def attack
-	standpos = [$j1m,$j2u,$j3u,$j1m,$j2u,$j3u,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2u,$j3u,$j1m,$j2u,$j3u]
-	writetolegs(standpos, 1, 0)
-	puts "I'm Attacking!"
+	box = ["B","B","B","B"]
+	attack_pos = [$j1m,$j2u-10,$j3u,$j1m,$j2u-10,$j3u,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1r,$j2u-20,$j3u-20,$j1l,$j2u-20,$j3u-20]
+	writetolegs(attack_pos,1,0)
+	puts "Attacking Pose"
+	box.each do |c|
+		box_right = [$j1m,$j2u-10,$j3u,$j1m,$j2u-10,$j3u,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1r,$j2u-20,$j3u-20,$j1l,$j2u+20,$j3u+20]
+		box_left = [$j1m,$j2u-10,$j3u,$j1m,$j2u-10,$j3u,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1r,$j2u-20,$j3u-20,$j1l,$j2u-30,$j3u-30]
+		writetolegs(box_right,10,0)
+		writetolegs(box_left,10,0)
+	end
 end
 
 def switch
