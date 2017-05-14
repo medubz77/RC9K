@@ -22,7 +22,6 @@ Shoes.app title: "Testing and calibration program: " do
       port = 2000
       Thread.new {
         s = TCPSocket.open(hostname, port)
-        #s.puts "#{@@list.text.to_i}, #{@@jnt1.text.to_i}, #{@@jnt2.text.to_i}"
         s.puts "Leg,#{@@list.text.to_i},pos1,#{@@jnt1.text.to_i},pos2,#{@@jnt2.text.to_i},pos3,#{@@jnt3.text.to_i}"
         s.close
      }

@@ -3,7 +3,7 @@ require 'rubyserial'
 # Require CSV for CSV functionality
 #require 'csv'
 #require 'socket' # Get sockets from stdlib
-require './server.rb'
+require_relative './server.rb'
 
 class Crab
 
@@ -58,16 +58,18 @@ end
 
 
 def test_leg(leg, pos1, pos2, pos3)
+	puts "pre-serial"
 	my_serial = Serial.new("/dev/ttyACM0", 115200)
 	##legs = [0,1,2,3,4,5]
 	##legs.each do |leg|
 	move_leg = "Leg(#{leg},#{pos1},#{pos2},#{pos3})"
 	my_serial.write(move_leg)
-	puts move_leg
+	puts "#{move_leg}"
 	##sleep 0.05
 	##end
 	my_serial.close
 	my_serial = nil
+	puts "post-serial"
 end
 
 
@@ -276,25 +278,31 @@ end
 #end
 #crab = Crab.new
 #crab.move("standup")
+
 end
 def testing(data)
-	a = []
-	h = Hash[*data]
-	h.each { |key, val|
-  	case index
-		when "Leg"
-			leg = val
-		when "pos1"
-			pos1 = val
-		when "pos2"
-			pos2 = val
-		when "pos3"
-			pos3 = val
+	crab = Crab.new
+	puts "#{data}"
+	leg_hash = Hash[*data]
+	puts "#{leg_hash}" # it goes this far
+	leg_hash.each { |key, val|
+		case key
+			when "Leg"
+				leg = val
+			when "pos1"
+				pos1 = val
+			when "pos2"
+				pos2 = val
+			when "pos3"
+				pos3 = val
 		end
 		puts "#{key} => #{val}"
-		puts "#{a}"
 	}
-	#leg_pos = a.split(",").map(&:to_i)
-	test_leg(leg,pos1,pos2,pos3)
+    $leg_to_test = leg_hash["Leg"]
+	$clb_j1 = leg_hash["pos1"]
+	$clb_j2 = leg_hash["pos2"]
+	$clb_j3 = leg_hash["pos3"]
+	crab.test_leg($leg_to_test, $clb_j1,$clb_j2, $clb_j3)
 end
+
 srvr
