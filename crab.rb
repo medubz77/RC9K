@@ -1,14 +1,15 @@
 # Require the library
 require 'rubyserial'
 # Require CSV for CSV functionality
-require 'csv'
+#require 'csv'
+#require 'socket' # Get sockets from stdlib
+require './server.rb'
 
 class Crab
 
 # Instantiate global variables
 def initialize
-
-# leg position costants
+# Joint position constants
 	$j1l=120
 	$j1m=150
 	$j1r=180
@@ -17,10 +18,8 @@ def initialize
 	$j3u=140
 	$j3d=227
 	$legs=[150, 150, 140,150, 150, 140,150, 150, 140, 150, 150, 140,150, 150, 140,150, 150, 140]
-	#$legs = []
 	$tomove=[150, 150, 140,150, 150, 140,150, 150, 140, 150, 150, 140,150, 150, 140,150, 150, 140]
 	$periter=[150, 150, 140,150, 150, 140,150, 150, 140, 150, 150, 140,150, 150, 140,150, 150, 140]
-
 end
 # Read calibration configuration file
 def calibrate
@@ -60,13 +59,13 @@ end
 
 def test_leg(leg, pos1, pos2, pos3)
 	my_serial = Serial.new("/dev/ttyACM0", 115200)
-	#legs = [0,1,2,3,4,5]
-	#legs.each do |leg|
+	##legs = [0,1,2,3,4,5]
+	##legs.each do |leg|
 	move_leg = "Leg(#{leg},#{pos1},#{pos2},#{pos3})"
 	my_serial.write(move_leg)
-	puts "#{move_leg}"
-	#sleep 0.05
-	#end
+	puts move_leg
+	##sleep 0.05
+	##end
 	my_serial.close
 	my_serial = nil
 end
@@ -278,3 +277,24 @@ end
 #crab = Crab.new
 #crab.move("standup")
 end
+def testing(data)
+	a = []
+	h = Hash[*data]
+	h.each { |key, val|
+  	case index
+		when "Leg"
+			leg = val
+		when "pos1"
+			pos1 = val
+		when "pos2"
+			pos2 = val
+		when "pos3"
+			pos3 = val
+		end
+		puts "#{key} => #{val}"
+		puts "#{a}"
+	}
+	#leg_pos = a.split(",").map(&:to_i)
+	test_leg(leg,pos1,pos2,pos3)
+end
+srvr
