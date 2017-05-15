@@ -15,17 +15,25 @@ Shoes.app title: "Testing and calibration program: " do
       @@jnt3 = edit_line width: 50
     end
     para ""
+    @p = para "Status => "
+    para ""
+    @pdata = para "Idle"
   end
   stack do
     @button = button("Test") do
       hostname = '127.0.0.1'
-      port = 2000
+      port = 2001
+      @p.text = "Initiating connection... "
       Thread.new {
-        s = TCPSocket.open(hostname, port)
-        s.puts "Leg,#{@@list.text.to_i},pos1,#{@@jnt1.text.to_i},pos2,#{@@jnt2.text.to_i},pos3,#{@@jnt3.text.to_i}"
+        server = TCPSocket.open(hostname, port)
+        send_data = "Leg,#{@@list.text.to_i},pos1,#{@@jnt1.text.to_i},pos2,#{@@jnt2.text.to_i},pos3,#{@@jnt3.text.to_i}"
+        server.puts send_data
+        @pdata.text = "Data sent: #{send_data}"
+        while line = server.gets
+          @p.text = "Data Received #{line}"
+        end
         s.close
      }
-
     end
   end
 end

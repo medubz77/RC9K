@@ -44,7 +44,7 @@ def die_video_die
 end # end method
 
 def test_legs(pos1, pos2, pos3)
-	my_serial = Serial.new("/dev/ttyACM0", 115200)
+	my_serial = Serial.new("/dev/ttyACM0", 115200) # RPI Serial
 	legs = [0,1,2,3,4,5]
 	legs.each do |leg|
 		move_leg = "Leg(#{leg},#{pos1},#{pos2},#{pos3})"
@@ -59,9 +59,8 @@ end
 
 def test_leg(leg, pos1, pos2, pos3)
 	puts "pre-serial"
-	my_serial = Serial.new("/dev/ttyACM0", 115200)
-	##legs = [0,1,2,3,4,5]
-	##legs.each do |leg|
+	#my_serial = Serial.new("/dev/ttyACM0", 115200) # RPI Serial
+	my_serial = Serial.new("COM1", 115200)
 	move_leg = "Leg(#{leg},#{pos1},#{pos2},#{pos3})"
 	my_serial.write(move_leg)
 	puts "#{move_leg}"
@@ -152,14 +151,18 @@ end
 
 def reset
 	my_serial = Serial.new("/dev/ttyACM0", 115200)
+	#my_serial = Serial.new("COM1", 115200)
 	legs = [0,1,2,3,4,5]
 	legs.each do |num|
 		leg = "Leg(#{num},150,140,144)"
 		puts leg
-		my_serial.write(leg)
+		my_serial.write("#{leg}")
 		sleep 0.05
 	end
 	puts "Reset Position"
+	my_serial.write("Position Reset.\r\n")
+	my_serial.close
+	my_serial = nil
 end
 
 def stand
@@ -298,10 +301,10 @@ def testing(data)
 		end
 		puts "#{key} => #{val}"
 	}
-    $leg_to_test = leg_hash["Leg"]
-	$clb_j1 = leg_hash["pos1"]
-	$clb_j2 = leg_hash["pos2"]
-	$clb_j3 = leg_hash["pos3"]
+  $leg_to_test = leg_hash["Leg"].to_i
+	$clb_j1 = leg_hash["pos1"].to_i
+	$clb_j2 = leg_hash["pos2"].to_i
+	$clb_j3 = leg_hash["pos3"].to_i
 	crab.test_leg($leg_to_test, $clb_j1,$clb_j2, $clb_j3)
 end
 
