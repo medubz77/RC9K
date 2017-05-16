@@ -16,7 +16,6 @@ Shoes.app title: "Testing and calibration program: " do
     end
     para ""
     @p = para "Status => "
-    para ""
     @pdata = para "Idle"
   end
   stack do
@@ -35,5 +34,53 @@ Shoes.app title: "Testing and calibration program: " do
         s.close
      }
     end
+    para ""
+    flow do
+		@reset_button = button("Reset") do
+			hostname = '127.0.0.1'
+			port = 2001
+			@p.text = "Initiating connection... "
+			Thread.new {
+				server = TCPSocket.open(hostname, port)
+				send_data = "reset, COMMAND"
+				server.puts send_data
+				@pdata.text = "Data sent: #{send_data}"
+			while line = server.gets
+				@p.text = "Data Received #{line}"
+			end
+			s.close
+		}			
+		end
+		@stand_button = button("Stand") do
+			hostname = '127.0.0.1'
+			port = 2001
+			@p.text = "Initiating connection... "
+			Thread.new {
+				server = TCPSocket.open(hostname, port)
+				send_data = "stand, COMMAND"
+				server.puts send_data
+				@pdata.text = "Data sent: #{send_data}"
+			while line = server.gets
+				@p.text = "Data Received #{line}"
+			end
+			s.close
+		}			
+		end	
+		@laydown_button = button("laydown") do
+			hostname = '127.0.0.1'
+			port = 2001
+			@p.text = "Initiating connection... "
+			Thread.new {
+				server = TCPSocket.open(hostname, port)
+				send_data = "laydown, COMMAND"
+				server.puts send_data
+				@pdata.text = "Data sent: #{send_data}"
+			while line = server.gets
+				@p.text = "Data Received #{line}"
+			end
+			s.close
+		}			
+		end					
+	end
   end
 end

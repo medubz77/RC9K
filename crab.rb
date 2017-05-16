@@ -59,8 +59,8 @@ end
 
 def test_leg(leg, pos1, pos2, pos3)
 	puts "pre-serial"
-	#my_serial = Serial.new("/dev/ttyACM0", 115200) # RPI Serial
-	my_serial = Serial.new("COM1", 115200)
+	my_serial = Serial.new("/dev/ttyACM0", 115200) # RPI Serial
+	#my_serial = Serial.new("COM1", 115200)
 	move_leg = "Leg(#{leg},#{pos1},#{pos2},#{pos3})"
 	my_serial.write(move_leg)
 	puts "#{move_leg}"
@@ -242,29 +242,19 @@ when "lift3legs"
 
 when "wave"
 	move("frontstand")
-	#sleep 0.1
-	#i=0
-	#leg_num = 5
-	#@@j2 = 109
+
 	while i < 4
-		#@@j3 = @@j3 - 35
-		#leg = "Leg(#{leg_num},#{@@j1},#{@@j2},#{@@j3})"
-		#my_serial.write(leg)
-		#puts leg
+
 		puts "wave up"
 		sleep 0.25
-		#@@j3 = @@j3+=35
-		#leg = "Leg(#{leg_num},#{@@j1},#{@@j2},#{@@j3})"
-		#my_serial.write(leg)
+
 		puts leg
 		puts "wave down"
 		i+=1
 		sleep 0.25
 	end
 	sleep 1
-	#@@j1 = 150
-	#@@j2 = 170
-	#@@j3 = 169
+
 	#leg = "Leg(#{leg_num},#{@@j1},#{@@j2},#{@@j3})"
 	#my_serial.write(leg)
 	move("laydown")
@@ -272,15 +262,6 @@ when "wave"
 	end
 end
 
-# method to make rc9k dance
-
-# Close serial once you're done using it
-#def stop_serial
-#@@my_serial.close
-#@@my_serial = nil
-#end
-#crab = Crab.new
-#crab.move("standup")
 
 end
 def testing(data)
@@ -298,14 +279,23 @@ def testing(data)
 				pos2 = val
 			when "pos3"
 				pos3 = val
+			when "reset"
+				crab.reset
+				return key
+			when "stand"
+				crab.stand
+				return	key
+			when "laydown"
+				crab.laydown
+				return key		
 		end
 		puts "#{key} => #{val}"
 	}
-  $leg_to_test = leg_hash["Leg"].to_i
-	$clb_j1 = leg_hash["pos1"].to_i
-	$clb_j2 = leg_hash["pos2"].to_i
-	$clb_j3 = leg_hash["pos3"].to_i
-	crab.test_leg($leg_to_test, $clb_j1,$clb_j2, $clb_j3)
+	$leg_to_test = leg_hash["Leg"].to_i
+	$test_j1 = leg_hash["pos1"].to_i
+	$test_j2 = leg_hash["pos2"].to_i
+	$test_j3 = leg_hash["pos3"].to_i
+	crab.test_leg($leg_to_test, $test_j1,$test_j2, $test_j3)
 end
 
 srvr
