@@ -74,6 +74,7 @@ end
 
 def writetolegs(pos, steps, time)
 	my_serial = Serial.new("/dev/ttyACM0", 115200)
+	#my_serial = Serial.new("COM1", 115200)
 	inarray=0
 	$legs.each do
 		$tomove[inarray]=pos[inarray]-$legs[inarray]
@@ -103,6 +104,7 @@ def writetolegs(pos, steps, time)
 		my_serial.write("Leg(4,#{$legs[12]},#{$legs[13]},#{$legs[14]})")
 
 		my_serial.write("Leg(5,#{$legs[15]},#{$legs[16]},#{$legs[17]})")
+
 		sleep 0.025
 		puts steps
 	end
