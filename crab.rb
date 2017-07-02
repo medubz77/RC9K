@@ -175,7 +175,7 @@ end
 
 def laydown
 	laydown_pos = [$j1m,$j2u,$j3u,$j1m,$j2u,$j3u,$j1m,$j2u,$j3u,$j1m,$j2u,$j3u,$j1m,$j2u,$j3u,$j1m,$j2u,$j3u]
-	writetolegs(laydown_pos, 5, 0.1)
+	writetolegs(laydown_pos, 5, 0.5)
 	puts "Laying Down"
 end
 
