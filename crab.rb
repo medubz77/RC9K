@@ -289,7 +289,7 @@ def testing(data)
 				return	key
 			when "laydown"
 				crab.laydown
-				return key		
+				return key
 		end
 		puts "#{key} => #{val}"
 	}
@@ -297,7 +297,7 @@ def testing(data)
 	$test_j1 = leg_hash["pos1"].to_i
 	$test_j2 = leg_hash["pos2"].to_i
 	$test_j3 = leg_hash["pos3"].to_i
-	crab.test_leg($leg_to_test, $test_j1,$test_j2, $test_j3)
+	#crab.test_leg($leg_to_test, $test_j1,$test_j2, $test_j3)
 end
 
 srvr
