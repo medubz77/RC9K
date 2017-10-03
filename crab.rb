@@ -74,7 +74,7 @@ end
 
 
 def writetolegs(pos, steps, time)
-    legs_pos = calibrate
+  #legs_pos = calibrate
 	my_serial = Serial.new("/dev/ttyACM0", 115200)
 	#my_serial = Serial.new("COM1", 115200)
 	inarray=0
@@ -89,7 +89,7 @@ def writetolegs(pos, steps, time)
 	end
 	while steps>=0
 		sleep time
-		steps=steps-1
+		steps=0
 		inarray=0
 		$legs.each do
 			$legs[inarray]+=$periter[inarray]
