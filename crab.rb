@@ -180,6 +180,7 @@ def laydown
 	laydown_pos = [$j1m,$j2u,$j3u,$j1m,$j2u,$j3u,$j1m,$j2u,$j3u,$j1m,$j2u,$j3u,$j1m,$j2u,$j3u,$j1m,$j2u,$j3u]
 	writetolegs(laydown_pos, 10, 0.065)
 	puts "Laying Down"
+	puts "#{laydown_pos}"
 end
 
 def attack
@@ -226,7 +227,7 @@ when "frontstand"
 when "tripodright"
 	stand
 	sleep 0.5
-	tresright = [$j1m,$j2u,$j3u,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2u,$j3u,$j1m,$j2u,$j3u,$j1m,$j2d,$j3d]
+	tresright = [$j1m,$j2u+20,$j3u+20,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2u+20,$j3u+20,$j1m,$j2u-20,$j3u+20,$j1m,$j2d,$j3d]
 	writetolegs(tresright,1,0)
 
 when "tripodleft"
