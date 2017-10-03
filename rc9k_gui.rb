@@ -36,7 +36,7 @@ Shoes.app title: "Testing and calibration program: " do
         while line = server.gets
           @p.text = "Data Received #{line}"
         end
-        s.close
+        server.close
      }
     end
     para ""
@@ -53,7 +53,7 @@ Shoes.app title: "Testing and calibration program: " do
 			while line = server.gets
 				@p.text = "Data Received #{line}"
 			end
-			s.close
+			server.close
 		}
 		end
 		@stand_button = button("Stand") do
@@ -68,7 +68,7 @@ Shoes.app title: "Testing and calibration program: " do
 			while line = server.gets
 				@p.text = "Data Received #{line}"
 			end
-			s.close
+			server.close
 		}
 		end
 		@laydown_button = button("laydown") do
@@ -83,7 +83,7 @@ Shoes.app title: "Testing and calibration program: " do
 			while line = server.gets
 				@p.text = "Data Received #{line}"
 			end
-			s.close
+			server.close
 		}
 		end
 	end

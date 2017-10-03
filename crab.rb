@@ -3,7 +3,8 @@ require 'rubyserial'
 # Require CSV for CSV functionality
 #require 'csv'
 #require 'socket' # Get sockets from stdlib
-require_relative './server.rb'
+
+#require_relative './server.rb'
 
 class Crab
 
@@ -17,15 +18,15 @@ def initialize
 	$j2d=120
 	$j3u=140
 	$j3d=227
-	$legs=[150, 150, 140,150, 150, 140,150, 150, 140, 150, 150, 140,150, 150, 140,150, 150, 140]
-	$tomove=[150, 150, 140,150, 150, 140,150, 150, 140, 150, 150, 140,150, 150, 140,150, 150, 140]
-	$periter=[150, 150, 140,150, 150, 140,150, 150, 140, 150, 150, 140,150, 150, 140,150, 150, 140]
+	$legs=[150,150,140,150,150,140,150,150,140,150,150,140,150,150,140,150,150,140]
+	$tomove=[150,150,140,150,150,140,150,150,140,150,150,140,150,150,140,150,150,140]
+	$periter=[150,150,140,150,150,140,150,150,140,150,150,140,150,150,140,150,150,140]
 end
 # Read calibration configuration file
 def calibrate
 	legs = File.open('calibration.conf', &:readline)
-	$legs = legs.split(",").map(&:to_i)
-	puts "#{$legs}"
+	legs.split(",").map(&:to_i)
+	#return "#{$legs}"
 end
 
 # Get data and do whatever you want with it
@@ -73,11 +74,12 @@ end
 
 
 def writetolegs(pos, steps, time)
+    legs_pos = calibrate
 	my_serial = Serial.new("/dev/ttyACM0", 115200)
 	#my_serial = Serial.new("COM1", 115200)
 	inarray=0
 	$legs.each do
-		$tomove[inarray]=pos[inarray]-$legs[inarray]
+		$tomove[inarray]=pos[inarray]-$legs[inarray]+calibrate[inarray]
 		inarray+=1
 	end
 	inarray=0
@@ -175,21 +177,26 @@ end
 
 def laydown
 	laydown_pos = [$j1m,$j2u,$j3u,$j1m,$j2u,$j3u,$j1m,$j2u,$j3u,$j1m,$j2u,$j3u,$j1m,$j2u,$j3u,$j1m,$j2u,$j3u]
-	writetolegs(laydown_pos, 5, 0.5)
+	writetolegs(laydown_pos, 10, 0.065)
 	puts "Laying Down"
 end
 
 def attack
+	stand
+	sleep 0.25
 	box = ["B","B","B","B"]
 	attack_pos = [$j1m,$j2u-10,$j3u,$j1m,$j2u-10,$j3u,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1r,$j2u-20,$j3u-20,$j1l,$j2u-20,$j3u-20]
-	writetolegs(attack_pos,1,0)
+	writetolegs(attack_pos,1, 0)
 	puts "Attacking Pose"
 	box.each do |c|
-		box_right = [$j1m,$j2u-10,$j3u,$j1m,$j2u-10,$j3u,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1r,$j2u-20,$j3u-20,$j1l,$j2u+20,$j3u+20]
-		box_left = [$j1m,$j2u-10,$j3u,$j1m,$j2u-10,$j3u,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1r,$j2u-20,$j3u-20,$j1l,$j2u-30,$j3u-30]
+		box_right = [$j1m,$j2u-10,$j3u,$j1m,$j2u-10,$j3u,$j1m,$j2d+20,$j3d,$j1m,$j2d+20,$j3d,$j1r,$j2u-30,$j3u-30,$j1l,$j2u+20,$j3u+20]
+		box_left = [$j1m,$j2u-10,$j3u,$j1m,$j2u-10,$j3u,$j1m,$j2d+20,$j3d,$j1m,$j2d+20,$j3d,$j1r,$j2u+20,$j3u+20,$j1l,$j2u-30,$j3u-30]
 		writetolegs(box_right,10,0)
+		sleep 0.025
 		writetolegs(box_left,10,0)
+		sleep 0.025
 	end
+	stand
 end
 
 def switch
@@ -216,10 +223,14 @@ when "frontstand"
 	writetolegs(fstand,1,0)
 
 when "tripodright"
+	stand
+	sleep 0.5
 	tresright = [$j1m,$j2u,$j3u,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2u,$j3u,$j1m,$j2u,$j3u,$j1m,$j2d,$j3d]
 	writetolegs(tresright,1,0)
 
 when "tripodleft"
+	stand
+	sleep 0.5
 	tresleft = [$j1m,$j2d,$j3d,$j1m,$j2u,$j3u,$j1m,$j2u,$j3u,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2u,$j3u]
 	writetolegs(tresleft,1,0)
 
@@ -297,7 +308,7 @@ def testing(data)
 	$test_j1 = leg_hash["pos1"].to_i
 	$test_j2 = leg_hash["pos2"].to_i
 	$test_j3 = leg_hash["pos3"].to_i
-	#crab.test_leg($leg_to_test, $test_j1,$test_j2, $test_j3)
+	crab.test_leg($leg_to_test, $test_j1,$test_j2, $test_j3)
 end
 
-srvr
+#srvr

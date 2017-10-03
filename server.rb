@@ -2,7 +2,7 @@ require 'socket'               # Get sockets from stdlib
 # Server for testing and calibration
 	def srvr
 		Thread.new {
-			server = TCPServer.open("0.0.0.0",2001)   # Socket to listen on port 2000
+			server = TCPServer.open("0.0.0.0",2001)   # Socket to listen on port 2001
 			loop {
 			Thread.start(server.accept) do |client|
 				while line = client.gets

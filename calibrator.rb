@@ -1,5 +1,3 @@
-# Require GUI toolkit
-#require 'green_shoes'
 
 class Calibrator
   def initialize
