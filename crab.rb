@@ -80,14 +80,14 @@ def writetolegs(pos, steps, time)
 		$periter[inarray]=$tomove[inarray]/(steps+1)
 		inarray +=1
 	end
-	while steps>=-1
-		sleep time
-		steps=0
-		inarray=0
-		$legs.each do
-			$legs[inarray]+=$periter[inarray]
-			inarray+=1
-		end
+	while steps>=0
+     sleep time
+     steps=steps-1
+     inarray=0
+     $legs.each do
+       $legs[inarray]+=$periter[inarray]
+       inarray+=1
+     end  
 		my_serial.write("Leg(0,#{$legs[0]},#{$legs[1]},#{$legs[2]})")
 
 		my_serial.write("Leg(1,#{$legs[3]},#{$legs[4]},#{$legs[5]})")
