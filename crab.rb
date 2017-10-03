@@ -163,16 +163,7 @@ def reset
 end
 
 def stand
-	leg0 = [$j1m,$j2d,$j3d]
-	leg1 = [$j1m,$j2d,$j3d]
-	leg2 = [$j1m,$j2d,$j3d]
-	leg3 = [$j1m,$j2d,$j3d]
-	leg4 = [$j1m,$j2d,$j3d]
-	leg5 = [$j1m,$j2d,$j3d]
-# Original code
-#	stand_pos = [$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d]
-# New Code
-	stand_pos = [leg0,leg1,leg2,leg3,leg4,leg5]
+	stand_pos = [$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d]
 	writetolegs(stand_pos, 1, 0)
 	puts "I'm Standing!"
 	puts "#{stand_pos}"
