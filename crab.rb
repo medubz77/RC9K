@@ -22,14 +22,11 @@ def initialize
 	$tomove=[150,150,140,150,150,140,150,150,140,150,150,140,150,150,140,150,150,140]
 	$periter=[150,150,140,150,150,140,150,150,140,150,150,140,150,150,140,150,150,140]
 end
-# Read calibration configuration file
-def calibrate
-	legs = File.open('calibration.conf', &:readline)
-	legs.split(",").map(&:to_i)
-	#return "#{$legs}"
+
+def print_legs
+
 end
 
-# Get data and do whatever you want with it
 def start_video
 # $v_pid = spawn '/home/pi/rc9k/vlc_stream.sh'
 	$v_pid = fork do
