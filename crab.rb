@@ -173,6 +173,7 @@ def stand
 	stand_pos = [$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d]
 	writetolegs(stand_pos, 1, 0)
 	puts "I'm Standing!"
+	puts "#{stand_pos}"
 end
 
 def laydown
