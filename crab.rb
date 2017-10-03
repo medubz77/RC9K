@@ -87,7 +87,7 @@ def writetolegs(pos, steps, time)
      $legs.each do
        $legs[inarray]+=$periter[inarray]
        inarray+=1
-     end  
+     end
 		my_serial.write("Leg(0,#{$legs[0]},#{$legs[1]},#{$legs[2]})")
 
 		my_serial.write("Leg(1,#{$legs[3]},#{$legs[4]},#{$legs[5]})")
@@ -163,7 +163,16 @@ def reset
 end
 
 def stand
-	stand_pos = [$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d]
+	leg0 = [$j1m,$j2d,$j3d]
+	leg1 = [$j1m,$j2d,$j3d]
+	leg2 = [$j1m,$j2d,$j3d]
+	leg3 = [$j1m,$j2d,$j3d]
+	leg4 = [$j1m,$j2d,$j3d]
+	leg5 = [$j1m,$j2d,$j3d]
+# Original code
+#	stand_pos = [$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d]
+# New Code
+	stand_pos = [leg0,leg1,leg2,leg3,leg4,leg5]
 	writetolegs(stand_pos, 1, 0)
 	puts "I'm Standing!"
 	puts "#{stand_pos}"
@@ -196,6 +205,7 @@ end
 
 def switch
 	for m in 0..4
+
 		movement = [$j1r,$j2d,$j3d,$j1l,$j2d,$j3d,$j1r,$j2d,$j3d,$j1l,$j2d,$j3d,$j1r,$j2d,$j3d,$j1l,$j2d,$j3d]
 		writetolegs(movement, 1, 0)
 		sleep 0.25
