@@ -72,7 +72,7 @@ def writetolegs(pos, steps, time)
 	#my_serial = Serial.new("COM1", 115200)
 	inarray=0
 	$legs.each do
-		$tomove[inarray]=pos[inarray]-$legs[inarray]+calibrate[inarray]
+		$tomove[inarray]=pos[inarray]-$legs[inarray]
 		inarray+=1
 	end
 	inarray=0
