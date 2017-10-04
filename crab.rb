@@ -107,6 +107,16 @@ def writetolegs(pos, steps, time)
 	my_serial = nil
 end
 
+
+def walk_right
+	right_side = [$j1r,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1r,$j2d,$j3d,$j1m,$j2d,$j3d]
+	writetolegs(right_side, 1, 0)
+end
+def walk_left
+	left_side = [$j1l,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1l,$j2d,$j3d,$j1m,$j2d,$j3d]
+	writetolegs(left_side, 1, 0)
+end
+
 def dumb_walk(steps)
 	move("standup")
 	sleep 5
@@ -196,7 +206,6 @@ end
 
 def switch
 	for m in 0..4
-
 		movement = [$j1r,$j2d,$j3d,$j1l,$j2d,$j3d,$j1r,$j2d,$j3d,$j1l,$j2d,$j3d,$j1r,$j2d,$j3d,$j1l,$j2d,$j3d]
 		writetolegs(movement, 1, 0)
 		sleep 0.25
