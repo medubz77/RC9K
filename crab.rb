@@ -118,7 +118,7 @@ end
 
 
 def left_swing_down
-	down_side = [$j1l,$j2d+20,$j3d+20,$j1m,$j2d,$j3d,$j1r,$j2d-20,$j3d,$j1m,$j2d,$j3d,$j1l,$j2d+20,$j3d+20,$j1m,$j2d,$j3d]
+	down_side = [$j1l,$j2d+20,$j3d,$j1m,$j2d,$j3d,$j1r,$j2d-20,$j3d,$j1m,$j2d,$j3d,$j1l,$j2d+20,$j3d,$j1m,$j2d,$j3d]
 	down_set = [$j1l,$j2d+20,$j3d,$j1m,$j2d,$j3d,$j1l,$j2d,$j3d,$j1m,$j2d,$j3d,$j1l,$j2d+20,$j3d,$j1l,$j2d,$j3d]
 	writetolegs(down_side, 1, 0)
 	sleep 0.25
