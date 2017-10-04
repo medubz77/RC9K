@@ -11,9 +11,9 @@ class Crab
 # Instantiate global variables
 def initialize
 # Joint position constants
-	$j1l=120
+	$j1l=135 # was 120
 	$j1m=150
-	$j1r=180
+	$j1r=165 # was 180
 	$j2u=150
 	$j2d=120
 	$j3u=140
