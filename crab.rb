@@ -109,29 +109,53 @@ end
 
 
 def left_swing_up
-	up_side = [$j1r,$j2d-20,$j3d-20,$j1r,$j2d-20,$j3d-20,$j1l,$j2d+20,$j3d,$j1l,$j2d+20,$j3d,$j1r,$j2d-20,$j3d-20,$j1r,$j2d-20,$j3d-20]
-	up_set = [$j1r,$j2d+20,$j3d,$j1r,$j2d+20,$j3d,$j1l,$j2d,$j3d,$j1l,$j2d,$j3d,$j1r,$j2d+20,$j3d,$j1r,$j2d+20,$j3d]
-	writetolegs(up_side, 1, 0)
+	lg0_d = [$j1r,$j2d-20,$j3d-20]
+	lg1_d = [$j1r,$j2d-20,$j3d-20]
+	lg2_d = [$j1l,$j2d+20,$j3d]
+	lg3_d = [$j1l,$j2d+20,$j3d]
+	lg4_d = [$j1r,$j2d-20,$j3d-20]
+	lg5_d = [$j1r,$j2d-20,$j3d-20]
+	#up_side = [$j1r,$j2d-20,$j3d-20,$j1r,$j2d-20,$j3d-20,$j1l,$j2d+20,$j3d,$j1l,$j2d+20,$j3d,$j1r,$j2d-20,$j3d-20,$j1r,$j2d-20,$j3d-20]
+	lg0_u = [$j1r,$j2d+20,$j3d]
+	lg1_u = [$j1r,$j2d+20,$j3d]
+	lg2_u = [$j1l,$j2d,$j3d]
+	lg3_u = [$j1l,$j2d,$j3d]
+	lg4_u = [$j1r,$j2d+20,$j3d]
+	lg5_u = [$j1r,$j2d+20,$j3d]
+	#up_set = [$j1r,$j2d+20,$j3d,$j1r,$j2d+20,$j3d,$j1l,$j2d,$j3d,$j1l,$j2d,$j3d,$j1r,$j2d+20,$j3d,$j1r,$j2d+20,$j3d]
+	writetolegs(lg0_d + lg1_d + lg2_d + lg3_d + lg4_d + lg5_d, 1, 0)
 	sleep 0.25
-	writetolegs(up_set, 1, 0)
+	writetolegs(lg0_u + lg1_u + lg2_u + lg3_u + lg4_u + lg5_u, 1, 0)
 end
 
 
 def left_swing_down
-	down_set = [$j1l,$j2d-20,$j3d-20,$j1l,$j2d-20,$j3d-20,$j1r,$j2d+20,$j3d,$j1r,$j2d+20,$j3d,$j1l,$j2d-20,$j3d-20,$j1l,$j2d-20,$j3d-20]
-	down_side = [$j1l,$j2d+20,$j3d,$j1l,$j2d+20,$j3d,$j1r,$j2d,$j3d,$j1r,$j2d,$j3d,$j1l,$j2d+20,$j3d,$j1l,$j2d,$j3d]
-	writetolegs(down_side, 1, 0)
+	lg0_d = [$j1l,$j2d-20,$j3d-20]
+	lg1_d = [$j1l,$j2d-20,$j3d-20]
+	lg2_d = [$j1r,$j2d+20,$j3d]
+	lg3_d = [$j1r,$j2d+20,$j3d]
+	lg4_d = [$j1l,$j2d-20,$j3d-20]
+	lg5_d = [$j1l,$j2d-20,$j3d-20]
+	#down_set = [$j1l,$j2d-20,$j3d-20,$j1l,$j2d-20,$j3d-20,$j1r,$j2d+20,$j3d,$j1r,$j2d+20,$j3d,$j1l,$j2d-20,$j3d-20,$j1l,$j2d-20,$j3d-20]
+	lg0_u = [$j1l,$j2d+20,$j3d]
+	lg1_u = [$j1l,$j2d+20,$j3d]
+	lg2_u = [$j1r,$j2d,$j3d]
+	lg3_u = [$j1r,$j2d,$j3d]
+	lg4_u = [$j1l,$j2d+20,$j3d]
+	lg5_u = [$j1l,$j2d+20,$j3d]
+	#down_side = [$j1l,$j2d+20,$j3d,$j1l,$j2d+20,$j3d,$j1r,$j2d,$j3d,$j1r,$j2d,$j3d,$j1l,$j2d+20,$j3d,$j1l,$j2d,$j3d]
+	writetolegs(lg0_d + lg1_d + lg2_d + lg3_d + lg4_d + lg5_d, 1, 0)
 	sleep 0.25
-	writetolegs(down_set, 1, 0)
+	writetolegs(lg0_u + lg1_u + lg2_u + lg3_u + lg4_u + lg5_u, 1, 0)
 end
 
 def walk_cycle(steps)
 	while steps > 0
-	steps = steps - 1
-	left_swing_up
-	sleep 0.25
-	left_swing_down
-	sleep 0.25
+		steps = steps - 1
+		left_swing_up
+		sleep 0.25
+		left_swing_down
+		sleep 0.25
 	end
 	stand
 
