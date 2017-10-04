@@ -125,11 +125,14 @@ def left_swing_down
 	writetolegs(down_set, 1, 0)
 end
 
-def walk_cycle
+def walk_cycle(steps)
+	while steps > 0
+		steps = steps - 1
 	left_swing_up
 	sleep 0.25
 	left_swing_down
 	sleep 0.25
+	end
 	stand
 
 end
