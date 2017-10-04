@@ -109,14 +109,14 @@ end
 
 
 def walk_right
-	right_side = [$j1r,$j2d-20,$j3d-20,$j1m,$j2d,$j3d,$j1m,$j2d+20,$j3d,$j1m,$j2d,$j3d,$j1r,$j2d-20,$j3d-20,$j1m,$j2d,$j3d]
+	right_side = [$j1r,$j2d-20,$j3d-20,$j1m,$j2d,$j3d,$j1l,$j2d+20,$j3d,$j1m,$j2d,$j3d,$j1r,$j2d-20,$j3d-20,$j1m,$j2d,$j3d]
 	right_set = [$j1r,$j2d+20,$j3d,$j1m,$j2d,$j3d,$j1l,$j2d,$j3d,$j1m,$j2d,$j3d,$j1r,$j2d+20,$j3d,$j1m,$j2d,$j3d]
 	writetolegs(right_side, 1, 0)
 	sleep 0.25
 	writetolegs(right_set, 1, 0)
 end
 def walk_left
-	left_side = [$j1l,$j2d-20,$j3d-20,$j1m,$j2d,$j3d,$j1m,$j2d+20,$j3d,$j1m,$j2d,$j3d,$j1l,$j2d-20,$j3d-20,$j1m,$j2d,$j3d]
+	left_side = [$j1l,$j2d-20,$j3d-20,$j1m,$j2d,$j3d,$j1r,$j2d+20,$j3d,$j1m,$j2d,$j3d,$j1l,$j2d-20,$j3d-20,$j1m,$j2d,$j3d]
 	left_set = [$j1l,$j2d+20,$j3d,$j1m,$j2d,$j3d,$j1l,$j2d,$j3d,$j1m,$j2d,$j3d,$j1l,$j2d+20,$j3d,$j1m,$j2d,$j3d]
 	writetolegs(left_side, 1, 0)
 	sleep 0.25
