@@ -109,8 +109,8 @@ end
 
 
 def left_swing_up
-	up_side = [$j1r,$j2d-20,$j3d-20,$j1l,$j2d-20,$j3d-20,$j1l,$j2d+20,$j3d,$j1r,$j2d+20,$j3d,$j1r,$j2d-20,$j3d-20,$j1l,$j2d-20,$j3d-20]
-	up_set = [$j1r,$j2d+20,$j3d,$j1l,$j2d+20,$j3d,$j1r,$j2d+20,$j3d,$j1l,$j2d+20,$j3d,$j1r,$j2d+20,$j3d,$j1r,$j2d+20,$j3d]
+	up_side = [$j1r,$j2d-20,$j3d-20,$j1r,$j2d-20,$j3d-20,$j1l,$j2d+20,$j3d,$j1l,$j2d+20,$j3d,$j1r,$j2d-20,$j3d-20,$j1r,$j2d-20,$j3d-20]
+	up_set = [$j1r,$j2d+20,$j3d,$j1r,$j2d+20,$j3d,$j1r,$j2d+20,$j3d,$j1r,$j2d+20,$j3d,$j1r,$j2d+20,$j3d,$j1l,$j2d+20,$j3d]
 	writetolegs(up_side, 1, 0)
 	sleep 0.25
 	writetolegs(up_set, 1, 0)
@@ -118,8 +118,8 @@ end
 
 
 def left_swing_down
-	down_side = [$j1l,$j2d-20,$j3d-20,$j1r,$j2d-20,$j3d-20,$j1r,$j2d+20,$j3d,$j1l,$j2d+20,$j3d,$j1l,$j2d-20,$j3d-20,$j1r,$j2d-20,$j3d-20]
-	down_set = [$j1l,$j2d+20,$j3d,$j1r,$j2d+20,$j3d,$j1l,$j2d+20,$j3d,$j1r,$j2d+20,$j3d,$j1l,$j2d+20,$j3d,$j1l,$j2d+20,$j3d]
+	down_set = [$j1l,$j2d+20,$j3d,$j1r,$j2d+20,$j3d,$j1l,$j2d+20,$j3d,$j1r,$j2d+20,$j3d,$j1l,$j2d+20,$j3d,$j1r,$j2d+20,$j3d]
+	down_side = = [$j1l,$j2d+20,$j3d,$j1l,$j2d+20,$j3d,$j1l,$j2d+20,$j3d,$j1l,$j2d+20,$j3d,$j1l,$j2d+20,$j3d,$j1r,$j2d+20,$j3d]
 	writetolegs(down_side, 1, 0)
 	sleep 0.25
 	writetolegs(down_set, 1, 0)
