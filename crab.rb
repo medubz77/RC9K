@@ -127,7 +127,7 @@ end
 
 def walk_cycle(steps)
 	while steps > 0
-		steps = steps - 1
+	steps = steps - 1
 	left_swing_up
 	sleep 0.25
 	left_swing_down
