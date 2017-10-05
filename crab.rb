@@ -7,7 +7,6 @@ require 'rubyserial'
 #require_relative './server.rb'
 
 class Crab
-
 # Instantiate global variables
 def initialize
 # Joint position constants
@@ -17,7 +16,7 @@ def initialize
 	$j2u=150
 	$j2d=120
 	$j3u=140
-	$j3d=210
+	$j3d=210 # was 227
 	$legs=[150,150,140,150,150,140,150,150,140,150,150,140,150,150,140,150,150,140]
 	$tomove=[150,150,140,150,150,140,150,150,140,150,150,140,150,150,140,150,150,140]
 	$periter=[150,150,140,150,150,140,150,150,140,150,150,140,150,150,140,150,150,140]
@@ -115,7 +114,7 @@ def left_swing_up
 	lg3_u = [$j1l,$j2d+20,$j3d+20]
 	lg4_u = [$j1r,$j2d-20,$j3d-20]
 	lg5_u = [$j1r,$j2d-20,$j3d-20]
-	writetolegs(lg0_u + lg1_u + lg2_u + lg3_u + lg4_u + lg5_u, 1, 0)
+
 	lg0_d = [$j1r,$j2d,$j3d]
 	lg1_d = [$j1r,$j2d,$j3d]
 	lg2_d = [$j1l,$j2d-20,$j3d-20]
@@ -124,7 +123,7 @@ def left_swing_up
 	lg5_d = [$j1r,$j2d,$j3d]
 
 	writetolegs(lg0_u + lg1_u + lg2_u + lg3_u + lg4_u + lg5_u, 1, 0)
-	sleep 0.25
+	sleep 0.5
 	writetolegs(lg0_d + lg1_d + lg2_d + lg3_d + lg4_d + lg5_d, 1, 0)
 
 end
@@ -145,7 +144,7 @@ def left_swing_down
 	lg4_u = [$j1l,$j2d-20,$j3d-20]
 	lg5_u = [$j1l,$j2d-20,$j3d-20]
 	writetolegs(lg0_d + lg1_d + lg2_d + lg3_d + lg4_d + lg5_d, 1, 0)
-	sleep 0.25
+	sleep 0.5
 	writetolegs(lg0_u + lg1_u + lg2_u + lg3_u + lg4_u + lg5_u, 1, 0)
 end
 
@@ -153,9 +152,9 @@ def walk_cycle(steps)
 	while steps > 0
 		steps = steps - 1
 		left_swing_up
-		sleep 0.25
+		sleep 0.5
 		left_swing_down
-		sleep 0.25
+		sleep 0.5
 	end
 	stand
 
