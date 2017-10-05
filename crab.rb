@@ -117,17 +117,17 @@ def swing_up
 	lg2_u = [$j1l,$j2d,$j3d]
 	lg5_u = [$j1r,$j2d,$j3d]
 	##left
-#	lg0_d = [$j1r,$j2d,$j3d]
-#	lg3_d = [$j1l,$j2d,$j3d]
-#	lg4_d = [$j1r,$j2d,$j3d]
+	lg0_d = [$j1r,$j2d+20,$j3d]
+	lg3_d = [$j1l,$j2d+20,$j3d]
+	lg4_d = [$j1r,$j2d+20,$j3d]
 	##right
-#	lg1_d = [$j1l,$j2d,$j3d]
-#	lg2_d = [$j1r,$j2d,$j3d]
-#	lg5_d = [$j1l,$j2d,$j3d]
+	lg1_d = [$j1l,$j2d,$j3d]
+	lg2_d = [$j1r,$j2d,$j3d]
+	lg5_d = [$j1l,$j2d,$j3d]
 
 	writetolegs(lg0_u + lg1_u + lg2_u + lg3_u + lg4_u + lg5_u, 1, 0)
-	sleep 0.25
-	#writetolegs(lg0_d + lg1_d + lg2_d + lg3_d + lg4_d + lg5_d, 1, 0)
+	sleep 0.175
+	writetolegs(lg0_d + lg1_d + lg2_d + lg3_d + lg4_d + lg5_d, 1, 0)
 end
 
 
@@ -141,17 +141,17 @@ def swing_down
 	lg2_d = [$j1r,$j2d-20,$j3d-20]
 	lg5_d = [$j1l,$j2d-20,$j3d-20]
 	##left
-#	lg0_u = [$j1r,$j2d,$j3d]
-#	lg3_u = [$j1l,$j2d,$j3d]
-#	lg4_u = [$j1r,$j2d,$j3d]
+	lg0_u = [$j1r,$j2d,$j3d]
+	lg3_u = [$j1l,$j2d,$j3d]
+	lg4_u = [$j1r,$j2d,$j3d]
 	##right
-#	lg1_u = [$j1l,$j2d,$j3d]
-#	lg2_u = [$j1r,$j2d,$j3d]
-#	lg5_u = [$j1l,$j2d,$j3d]
+	lg1_u = [$j1l,$j2d,$j3d]
+	lg2_u = [$j1r,$j2d,$j3d]
+	lg5_u = [$j1l,$j2d,$j3d]
 
 	writetolegs(lg0_d + lg1_d + lg2_d + lg3_d + lg4_d + lg5_d, 1, 0)
-	sleep 0.25
-	#writetolegs(lg0_u + lg1_u + lg2_u + lg3_u + lg4_u + lg5_u, 1, 0)
+	sleep 0.175
+	writetolegs(lg0_u + lg1_u + lg2_u + lg3_u + lg4_u + lg5_u, 1, 0)
 end
 
 
