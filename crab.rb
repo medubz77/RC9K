@@ -116,7 +116,7 @@ def left_swing_up
 	lg5_u = [$j1l,$j2d,$j3d]
 
 	lg0_d = [$j1r,$j2d,$j3d]
-	lg3_d = [$j1l,$j2d,$j3d]
+	lg3_d = [$j1r,$j2d,$j3d]
 	lg4_d = [$j1r,$j2d,$j3d]
 	lg1_d = [$j1l,$j2d,$j3d]
 	lg2_d = [$j1l,$j2d,$j3d]
@@ -138,7 +138,7 @@ def left_swing_down
 	lg5_d = [$j1r,$j2d,$j3d]
 
 	lg0_u = [$j1l,$j2d,$j3d]
-	lg3_u = [$j1r,$j2d,$j3d]
+	lg3_u = [$j1l,$j2d,$j3d]
 	lg4_u = [$j1l,$j2d,$j3d]
 	lg1_u = [$j1r,$j2d,$j3d]
 	lg2_u = [$j1r,$j2d,$j3d]
@@ -152,9 +152,9 @@ def walk_cycle(steps)
 	while steps > 0
 		steps = steps - 1
 		left_swing_up
-		sleep 0.5
+		sleep 0.25
 		left_swing_down
-		sleep 0.5
+		sleep 0.25
 	end
 	stand
 
