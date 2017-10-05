@@ -109,9 +109,9 @@ end
 
 def swing_up
 	##left
-	lg0_u = [$j1r,$j2d,$j3d]
-	lg3_u = [$j1l,$j2d,$j3d]
-	lg4_u = [$j1r,$j2d,$j3d]
+	lg0_u = [$j1r,$j2d-20,$j3d-20]
+	lg3_u = [$j1l,$j2d-20,$j3d-20]
+	lg4_u = [$j1r,$j2d-20,$j3d-20]
 	##right
 	lg1_u = [$j1r,$j2d,$j3d]
 	lg2_u = [$j1l,$j2d,$j3d]
@@ -137,9 +137,9 @@ def swing_down
 	lg3_d = [$j1r,$j2d,$j3d]
 	lg4_d = [$j1l,$j2d,$j3d]
 	##right
-	lg1_d = [$j1l,$j2d,$j3d]
-	lg2_d = [$j1r,$j2d,$j3d]
-	lg5_d = [$j1l,$j2d,$j3d]
+	lg1_d = [$j1l,$j2d-20,$j3d-20]
+	lg2_d = [$j1r,$j2d-20,$j3d-20]
+	lg5_d = [$j1l,$j2d-20,$j3d-20]
 	##left
 #	lg0_u = [$j1r,$j2d,$j3d]
 #	lg3_u = [$j1l,$j2d,$j3d]
