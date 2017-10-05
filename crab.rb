@@ -108,47 +108,50 @@ end
 
 
 def left_swing_up
+	#left
 	lg0_u = [$j1r,$j2d,$j3d]
 	lg3_u = [$j1l,$j2d,$j3d]
 	lg4_u = [$j1r,$j2d,$j3d]
-	lg1_u = [$j1r,$j2d,$j3d]
-	lg2_u = [$j1l,$j2d,$j3d]
-	lg5_u = [$j1r,$j2d,$j3d]
-
-	lg0_d = [$j1r,$j2d,$j3d]
-	lg3_d = [$j1l,$j2d,$j3d]
-	lg4_d = [$j1r,$j2d,$j3d]
+	#right
+	lg1_u = [$j1l,$j2d,$j3d]
+	lg2_u = [$j1r,$j2d,$j3d]
+	lg5_u = [$j1l,$j2d,$j3d]
+	#left	
+	lg0_d = [$j1l,$j2d,$j3d]
+	lg3_d = [$j1r,$j2d,$j3d]
+	lg4_d = [$j1l,$j2d,$j3d]
+	#right
 	lg1_d = [$j1r,$j2d,$j3d]
 	lg2_d = [$j1l,$j2d,$j3d]
 	lg5_d = [$j1r,$j2d,$j3d]
 
 	writetolegs(lg0_u + lg1_u + lg2_u + lg3_u + lg4_u + lg5_u, 1, 0)
-	puts "SU UP"
-	sleep 0.5
+	sleep 0.25
 	writetolegs(lg0_d + lg1_d + lg2_d + lg3_d + lg4_d + lg5_d, 1, 0)
-  puts "SU DOWN"
 end
 
 
 def left_swing_down
+	#left
 	lg0_d = [$j1l,$j2d,$j3d]
 	lg3_d = [$j1r,$j2d,$j3d]
 	lg4_d = [$j1l,$j2d,$j3d]
+	#right
 	lg1_d = [$j1r,$j2d,$j3d]
 	lg2_d = [$j1l,$j2d,$j3d]
 	lg5_d = [$j1r,$j2d,$j3d]
+	#left
+	lg0_u = [$j1r,$j2d,$j3d]
+	lg3_u = [$j1l,$j2d,$j3d]
+	lg4_u = [$j1r,$j2d,$j3d]
+	#right
+	lg1_u = [$j1l,$j2d,$j3d]
+	lg2_u = [$j1r,$j2d,$j3d]
+	lg5_u = [$j1l,$j2d,$j3d]
 
-	lg0_u = [$j1l,$j2d,$j3d]
-	lg3_u = [$j1r,$j2d,$j3d]
-	lg4_u = [$j1l,$j2d,$j3d]
-	lg1_u = [$j1r,$j2d,$j3d]
-	lg2_u = [$j1l,$j2d,$j3d]
-	lg5_u = [$j1r,$j2d,$j3d]
 	writetolegs(lg0_d + lg1_d + lg2_d + lg3_d + lg4_d + lg5_d, 1, 0)
-	puts "SD DOWN"
-	sleep 0.5
+	sleep 0.25
 	writetolegs(lg0_u + lg1_u + lg2_u + lg3_u + lg4_u + lg5_u, 1, 0)
-	puts "SD UP"
 end
 
 
@@ -156,9 +159,9 @@ def walk_cycle(steps)
 	while steps > 0
 		steps = steps - 1
 		left_swing_up
-		sleep 0.25
+		sleep 0.5
 		left_swing_down
-		sleep 0.25
+		sleep 0.5
 	end
 	stand
 
