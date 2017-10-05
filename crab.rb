@@ -132,13 +132,13 @@ end
 
 def swing_down
 	##left
-	lg0 = [$j1l,$j2d,$j3d]
-	lg3 = [$j1r,$j2d,$j3d]
-	lg4 = [$j1l,$j2d,$j3d]
+	lg0 = [$j1r,$j2d,$j3d]
+	lg3 = [$j1l,$j2d,$j3d]
+	lg4 = [$j1r,$j2d,$j3d]
 	##right
-	lg1 = [$j1l,$j2d,$j3d]
-	lg2 = [$j1r,$j2d,$j3d]
-	lg5 = [$j1l,$j2d,$j3d]
+	lg1 = [$j1r,$j2d,$j3d]
+	lg2 = [$j1l,$j2d,$j3d]
+	lg5 = [$j1r,$j2d,$j3d]
 
 	writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
 end
