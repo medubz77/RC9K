@@ -158,8 +158,12 @@ def walk_cycle(steps)
 	while steps > 0
 		steps = steps - 1
 		swing_up
+		sleep 0.075
+		swing_up_set
 		sleep 0.5
 		swing_down
+		sleep 0.075
+		swing_down_set
 		sleep 0.5
 	end
 	stand
