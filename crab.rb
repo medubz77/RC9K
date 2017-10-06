@@ -113,16 +113,27 @@ def swing_up
 	lg3 = [$j1l,$j2d-20,$j3d-20]
 	lg4 = [$j1r,$j2d-20,$j3d-20]
 	##right
-	lg1 = [$j1r,$j2d+20,$j3d]
-	lg2 = [$j1l,$j2d+20,$j3d]
-	lg5 = [$j1r,$j2d+20,$j3d]
+	lg1 = [$j1r,$j2d+10,$j3d]
+	lg2 = [$j1l,$j2d+10,$j3d]
+	lg5 = [$j1r,$j2d+10,$j3d]
 	writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
+	sleep 0.5
+	##left
+	lg0 = [$j1r,$j2d+10,$j3d]
+	lg3 = [$j1l,$j2d+10,$j3d]
+	lg4 = [$j1r,$j2d+10,$j3d]
+	##right
+	lg1 = [$j1r,$j2d-20,$j3d-20]
+	lg2 = [$j1l,$j2d-20,$j3d-20]
+	lg5 = [$j1r,$j2d-20,$j3d-20]
+	writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
+
 end
 def swing_up_set
 	##left
-	lg0 = [$j1r,$j2d+20,$j3d]
-	lg3 = [$j1l,$j2d+20,$j3d]
-	lg4 = [$j1r,$j2d+20,$j3d]
+	lg0 = [$j1r,$j2d+10,$j3d]
+	lg3 = [$j1l,$j2d+10,$j3d]
+	lg4 = [$j1r,$j2d+10,$j3d]
 	##right
 	lg1 = [$j1r,$j2d-20,$j3d-20]
 	lg2 = [$j1l,$j2d-20,$j3d-20]
@@ -132,9 +143,9 @@ end
 
 def swing_down
 	##left
-	lg0 = [$j1l,$j2d+20,$j3d]
-	lg3 = [$j1r,$j2d+20,$j3d]
-	lg4 = [$j1l,$j2d+20,$j3d]
+	lg0 = [$j1l,$j2d+10,$j3d]
+	lg3 = [$j1r,$j2d+10,$j3d]
+	lg4 = [$j1l,$j2d+10,$j3d]
 	##right
 	lg1 = [$j1r,$j2d-20,$j3d-20]
 	lg2 = [$j1l,$j2d-20,$j3d-20]
@@ -144,9 +155,9 @@ def swing_down
 end
 def swing_down_set
 	##left
-	lg0 = [$j1l,$j2d+20,$j3d]
-	lg3 = [$j1r,$j2d+20,$j3d]
-	lg4 = [$j1l,$j2d+20,$j3d]
+	lg0 = [$j1l,$j2d+10,$j3d]
+	lg3 = [$j1r,$j2d+10,$j3d]
+	lg4 = [$j1l,$j2d+10,$j3d]
 	##right
 	lg1 = [$j1l,$j2d-20,$j3d-20]
 	lg2 = [$j1r,$j2d-20,$j3d-20]
