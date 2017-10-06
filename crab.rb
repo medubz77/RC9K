@@ -107,7 +107,7 @@ def writetolegs(pos, steps, time)
 end
 
 
-def walk(steps)
+def walk_cycle(steps)
 	while steps > 0
 	##left
 		lg0 = [$j1r,$j2d-20,$j3d-20]
