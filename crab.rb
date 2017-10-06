@@ -107,109 +107,49 @@ def writetolegs(pos, steps, time)
 end
 
 
-def step_up
-	##left
-	lg0 = [$j1r,$j2d-20,$j3d-20]
-	lg3 = [$j1l,$j2d-20,$j3d-20]
-	lg4 = [$j1r,$j2d-20,$j3d-20]
-	##right
-	lg1 = [$j1r,$j2d+10,$j3d]
-	lg2 = [$j1l,$j2d+10,$j3d]
-	lg5 = [$j1r,$j2d+10,$j3d]
-	writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
-	sleep 0.5
-	##left
-	lg0 = [$j1r,$j2d+10,$j3d]
-	lg3 = [$j1l,$j2d+10,$j3d]
-	lg4 = [$j1r,$j2d+10,$j3d]
-	##right
-	lg1 = [$j1r,$j2d-20,$j3d-20]
-	lg2 = [$j1l,$j2d-20,$j3d-20]
-	lg5 = [$j1r,$j2d-20,$j3d-20]
-	writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
-	sleep 0.5
-	##left
-	lg0 = [$j1l,$j2d+10,$j3d]
-	lg3 = [$j1r,$j2d+10,$j3d]
-	lg4 = [$j1l,$j2d+10,$j3d]
-	##right
-	lg1 = [$j1l,$j2d-20,$j3d-20]
-	lg2 = [$j1r,$j2d-20,$j3d-20]
-	lg5 = [$j1l,$j2d-20,$j3d-20]
-	writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
-	sleep 0.5
-	##left
-	lg0 = [$j1l,$j2d-20,$j3d-20]
-	lg3 = [$j1r,$j2d-20,$j3d-20]
-	lg4 = [$j1l,$j2d-20,$j3d-20]
-	##right
-	lg1 = [$j1l,$j2d+20,$j3d]
-	lg2 = [$j1r,$j2d+20,$j3d]
-	lg5 = [$j1l,$j2d+20,$j3d]
-	writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
-	sleep 0.5
-end
-
-def step_up_set
-	##left
-	lg0 = [$j1l,$j2d+10,$j3d]
-	lg3 = [$j1r,$j2d+10,$j3d]
-	lg4 = [$j1l,$j2d+10,$j3d]
-	##right
-	lg1 = [$j1l,$j2d-20,$j3d-20]
-	lg2 = [$j1r,$j2d-20,$j3d-20]
-	lg5 = [$j1l,$j2d-20,$j3d-20]
-	writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
-	sleep 0.5
-	##left
-	lg0 = [$j1r,$j2d-20,$j3d-20]
-	lg3 = [$j1l,$j2d-20,$j3d-20]
-	lg4 = [$j1r,$j2d-20,$j3d-20]
-	##right
-	lg1 = [$j1r,$j2d+10,$j3d]
-	lg2 = [$j1l,$j2d+10,$j3d]
-	lg5 = [$j1r,$j2d+10,$j3d]
-	writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
-end
-
-def step_down
-	##left
-	lg0 = [$j1l,$j2d+10,$j3d]
-	lg3 = [$j1r,$j2d+10,$j3d]
-	lg4 = [$j1l,$j2d+10,$j3d]
-	##right
-	lg1 = [$j1r,$j2d-20,$j3d-20]
-	lg2 = [$j1l,$j2d-20,$j3d-20]
-	lg5 = [$j1r,$j2d-20,$j3d-20]
-
-	writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
-end
-def step_down_set
-	##left
-	lg0 = [$j1l,$j2d+10,$j3d]
-	lg3 = [$j1r,$j2d+10,$j3d]
-	lg4 = [$j1l,$j2d+10,$j3d]
-	##right
-	lg1 = [$j1l,$j2d-20,$j3d-20]
-	lg2 = [$j1r,$j2d-20,$j3d-20]
-	lg5 = [$j1l,$j2d-20,$j3d-20]
-	writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
-end
-
-def walk_cycle(steps)
+def walk(steps)
 	while steps > 0
-		steps = steps - 1
-		step_up
-		sleep 0.075
-		step_up_set
-		sleep 0.5
-		#swing_down
-		#sleep 0.075
-		#swing_down_set
-		#sleep 0.5
+	##left
+		lg0 = [$j1r,$j2d-20,$j3d-20]
+		lg3 = [$j1l,$j2d-20,$j3d-20]
+		lg4 = [$j1r,$j2d-20,$j3d-20]
+	##right
+		lg1 = [$j1r,$j2d+10,$j3d]
+		lg2 = [$j1l,$j2d+10,$j3d]
+		lg5 = [$j1r,$j2d+10,$j3d]
+		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
+		sleep 0.25
+	##left
+		lg0 = [$j1r,$j2d+10,$j3d]
+		lg3 = [$j1l,$j2d+10,$j3d]
+		lg4 = [$j1r,$j2d+10,$j3d]
+	##right
+		lg1 = [$j1r,$j2d-20,$j3d-20]
+		lg2 = [$j1l,$j2d-20,$j3d-20]
+		lg5 = [$j1r,$j2d-20,$j3d-20]
+		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
+		sleep 0.25
+	##left
+		lg0 = [$j1l,$j2d+10,$j3d]
+		lg3 = [$j1r,$j2d+10,$j3d]
+		lg4 = [$j1l,$j2d+10,$j3d]
+	##right
+		lg1 = [$j1l,$j2d-20,$j3d-20]
+		lg2 = [$j1r,$j2d-20,$j3d-20]
+		lg5 = [$j1l,$j2d-20,$j3d-20]
+		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
+		sleep 0.25
+	##left
+		lg0 = [$j1l,$j2d-20,$j3d-20]
+		lg3 = [$j1r,$j2d-20,$j3d-20]
+		lg4 = [$j1l,$j2d-20,$j3d-20]
+	##right
+		lg1 = [$j1l,$j2d+20,$j3d]
+		lg2 = [$j1r,$j2d+20,$j3d]
+		lg5 = [$j1l,$j2d+20,$j3d]
+		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
+		sleep 0.25
 	end
-	stand
-
 end
 
 
