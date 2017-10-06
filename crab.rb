@@ -109,6 +109,7 @@ end
 
 def walk_cycle(steps)
 	while steps > 0
+		steps = steps - 1
 	##left
 		lg0 = [$j1r,$j2d-20,$j3d-20]
 		lg3 = [$j1l,$j2d-20,$j3d-20]
