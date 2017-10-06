@@ -119,7 +119,7 @@ def walk_cycle(steps)
 		lg2 = [$j1l,$j2d+10,$j3d]
 		lg5 = [$j1r,$j2d+10,$j3d]
 		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
-		sleep 0.25
+		sleep 0.5
 	##left
 		lg0 = [$j1r,$j2d+10,$j3d]
 		lg3 = [$j1l,$j2d+10,$j3d]
@@ -129,7 +129,7 @@ def walk_cycle(steps)
 		lg2 = [$j1l,$j2d-20,$j3d-20]
 		lg5 = [$j1r,$j2d-20,$j3d-20]
 		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
-		sleep 0.25
+		sleep 0.5
 	##left
 		lg0 = [$j1l,$j2d+10,$j3d]
 		lg3 = [$j1r,$j2d+10,$j3d]
@@ -139,7 +139,7 @@ def walk_cycle(steps)
 		lg2 = [$j1r,$j2d-20,$j3d-20]
 		lg5 = [$j1l,$j2d-20,$j3d-20]
 		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
-		sleep 0.25
+		sleep 0.5
 	##left
 		lg0 = [$j1l,$j2d-20,$j3d-20]
 		lg3 = [$j1r,$j2d-20,$j3d-20]
@@ -149,43 +149,9 @@ def walk_cycle(steps)
 		lg2 = [$j1r,$j2d+20,$j3d]
 		lg5 = [$j1l,$j2d+20,$j3d]
 		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
-		sleep 0.25
+		sleep 0.5
 	end
-end
-
-
-def dumb_walk(steps)
-	move("standup")
-	sleep 5
-	move("tripodright")
-	while steps > 0
-		steps = steps - 1
-		walk_right = [170,140,144,150,130,212,130,170,169,130,140,144,170,140,144,170,170,169]
-		writetolegs(walk_right,1,0)
-		puts "walked right"
-		sleep 5
-		poise_right = [170,170,169,170,130,212,130,170,169,130,170,169,170,170,169,170,170,169]
-		writetolegs(poise_right,1,0)
-		puts "poised right"
-		sleep 5
-		switch_right = [170,170,169,170,140,144,130,140,144,130,170,169,170,170,169,170,140,144]
-		writetolegs(switch_right,1,0)
-		puts "switched right"
-		sleep 5
-		walk_left = [130,170,169,130,140,144,170,140,144,170,170,169,130,140,144,130,140,144]
-		writetolegs(walk_left,1,0)
-		puts "walked left"
-		sleep 5
-		poise_left = [130,170,169,130,170,169,170,170,169,170,170,169,130,170,169,130,170,169]
-		writetolegs(poise_left,1,0)
-		puts "poised left"
-		sleep 5
-		switch_left = [130,140,144,130,170,169,170,170,169,170,140,144,130,140,144,130,170,169]
-		writetolegs(switch_left,1,0)
-		puts "switched left"
-		sleep 5
-	end
-	move("standup")
+	stand
 end
 
 def walk(speed, gait)
