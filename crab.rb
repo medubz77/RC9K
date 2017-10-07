@@ -4,7 +4,7 @@ require 'rubyserial'
 #require 'csv'
 #require 'socket' # Get sockets from stdlib
 
-#require_relative './server.rb'
+require_relative './server.rb'
 
 class Crab
 # Instantiate global variables
