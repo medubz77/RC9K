@@ -25,7 +25,7 @@ Shoes.app title: "Testing and calibration program: " do
   stack do
 
     @button = button("Test") do
-      hostname = '127.0.0.1'
+      hostname = '192.168.15.35'
       port = 2001
       @p.text = "Initiating connection... "
       Thread.new {
@@ -42,7 +42,7 @@ Shoes.app title: "Testing and calibration program: " do
     para ""
     flow do
 		@reset_button = button("Reset") do
-			hostname = '127.0.0.1'
+			hostname = '192.168.15.35'
 			port = 2001
 			@p.text = "Initiating connection... "
 			Thread.new {
@@ -57,7 +57,7 @@ Shoes.app title: "Testing and calibration program: " do
 		}
 		end
 		@stand_button = button("Stand") do
-			hostname = '127.0.0.1'
+			hostname = '192.168.15.35'
 			port = 2001
 			@p.text = "Initiating connection... "
 			Thread.new {
@@ -72,7 +72,7 @@ Shoes.app title: "Testing and calibration program: " do
 		}
 		end
 		@laydown_button = button("laydown") do
-			hostname = '127.0.0.1'
+			hostname = '192.168.15.35'
 			port = 2001
 			@p.text = "Initiating connection... "
 			Thread.new {
