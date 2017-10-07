@@ -197,9 +197,7 @@ puts gaitlcentr
 	end
 	stand
 
-
 end
-
 
 def walk_cycle(steps, speed)
 	while steps > 0
@@ -268,7 +266,6 @@ end
 
 def walk(speed, gait)
 
-
 end
 
 def reset
@@ -308,9 +305,9 @@ def attack
 	attack_pos = [$j1m,$j2u-10,$j3u,$j1m,$j2u-10,$j3u,$j1m,$j2d,$j3d,$j1m,$j2d,$j3d,$j1r,$j2u-20,$j3u-20,$j1l,$j2u-20,$j3u-20]
 	writetolegs(attack_pos,1, 0)
 	puts "Attacking Pose"
+	box_right = [$j1m,$j2u-10,$j3u,$j1m,$j2u-10,$j3u,$j1m,$j2d+20,$j3d,$j1m,$j2d+20,$j3d,$j1r,$j2u-30,$j3u-30,$j1l,$j2u+20,$j3u+20]
+	box_left = [$j1m,$j2u-10,$j3u,$j1m,$j2u-10,$j3u,$j1m,$j2d+20,$j3d,$j1m,$j2d+20,$j3d,$j1r,$j2u+20,$j3u+20,$j1l,$j2u-30,$j3u-30]
 	box.each do |c|
-		box_right = [$j1m,$j2u-10,$j3u,$j1m,$j2u-10,$j3u,$j1m,$j2d+20,$j3d,$j1m,$j2d+20,$j3d,$j1r,$j2u-30,$j3u-30,$j1l,$j2u+20,$j3u+20]
-		box_left = [$j1m,$j2u-10,$j3u,$j1m,$j2u-10,$j3u,$j1m,$j2d+20,$j3d,$j1m,$j2d+20,$j3d,$j1r,$j2u+20,$j3u+20,$j1l,$j2u-30,$j3u-30]
 		writetolegs(box_right,10,0)
 		sleep 0.025
 		writetolegs(box_left,10,0)
@@ -395,7 +392,6 @@ when "wave"
 	end
 end
 
-
 end
 def testing(data)
 	crab = Crab.new
@@ -431,4 +427,4 @@ def testing(data)
 	crab.test_leg($leg_to_test, $test_j1,$test_j2, $test_j3)
 end
 
-#srvr
+srvr
