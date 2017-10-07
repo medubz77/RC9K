@@ -110,23 +110,19 @@ end
 def walk_cycle(steps)
 	while steps > 0
 		steps = steps - 1
-	##left  Legs Up
-		lg0 = [$j1r,$j2d-20,$j3d-20]
-		lg3 = [$j1l,$j2d-20,$j3d-20]
-		lg4 = [$j1r,$j2d-20,$j3d-20]
-
-		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
-		sleep 0.5
 	##right Legs Down
 		lg1 = [$j1r,$j2d+10,$j3d]
 		lg2 = [$j1l,$j2d+10,$j3d]
 		lg5 = [$j1r,$j2d+10,$j3d]
+		lg0 = [$j1l,$j2d+10,$j3d]
+		lg3 = [$j1r,$j2d+10,$j3d]
+		lg4 = [$j1l,$j2d+10,$j3d]
 		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
 		sleep 0.5
-	##left  Legs Up
-		lg0 = [$j1r,$j2d+10,$j3d]
-		lg3 = [$j1l,$j2d+10,$j3d]
-		lg4 = [$j1r,$j2d+10,$j3d]
+		##left  Legs Up
+		lg0 = [$j1r,$j2d-20,$j3d-20]
+		lg3 = [$j1l,$j2d-20,$j3d-20]
+		lg4 = [$j1r,$j2d-20,$j3d-20]
 		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
 		sleep 0.5
 	##right	Legs Down
@@ -135,28 +131,34 @@ def walk_cycle(steps)
 		lg5 = [$j1r,$j2d-20,$j3d-20]
 		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
 		sleep 0.5
-	##left
+	##left  Legs Up
+		lg0 = [$j1r,$j2d+10,$j3d]
+		lg3 = [$j1l,$j2d+10,$j3d]
+		lg4 = [$j1r,$j2d+10,$j3d]
+		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
+		sleep 0.5
+	##left Legs Down
 		lg0 = [$j1l,$j2d+10,$j3d]
 		lg3 = [$j1r,$j2d+10,$j3d]
 		lg4 = [$j1l,$j2d+10,$j3d]
 		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
 		sleep 0.5
-	##right
+	##right Legs Up
 		lg1 = [$j1l,$j2d-20,$j3d-20]
 		lg2 = [$j1r,$j2d-20,$j3d-20]
 		lg5 = [$j1l,$j2d-20,$j3d-20]
 		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
 		sleep 0.5
-	##left
-		lg0 = [$j1l,$j2d-20,$j3d-20]
-		lg3 = [$j1r,$j2d-20,$j3d-20]
-		lg4 = [$j1l,$j2d-20,$j3d-20]
-		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
-		sleep 0.5
-	##right
+	##right Down
 		lg1 = [$j1l,$j2d+20,$j3d]
 		lg2 = [$j1r,$j2d+20,$j3d]
 		lg5 = [$j1l,$j2d+20,$j3d]
+		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
+		sleep 0.5
+	##left Legs Up
+		lg0 = [$j1l,$j2d-20,$j3d-20]
+		lg3 = [$j1r,$j2d-20,$j3d-20]
+		lg4 = [$j1l,$j2d-20,$j3d-20]
 		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
 		sleep 0.5
 	end
