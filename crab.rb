@@ -100,7 +100,7 @@ def writetolegs(pos, steps, time)
 		my_serial.write("Leg(5,#{$legs[15]},#{$legs[16]},#{$legs[17]})")
 
 		sleep 0.025
-		puts steps
+		#puts steps
 	end
 	my_serial.close
 	my_serial = nil
@@ -125,9 +125,15 @@ gaitlcentl=gaitlcentl.to_i
 gaitrcentr=gaitrcentr.to_i
 gaitlcentr=gaitlcentr.to_i
 
+puts "centl"
+puts gaitrcentl
+puts gaitlcentl
 
-puts gaitlleft
-puts gaitlcentl																							##left and right, 1 1 for full speed forward, -1 for full speed back,  1 -1 for turn right
+puts "centr"
+puts gaitrcentr
+puts gaitlcentr
+
+																							##left and right, 1 1 for full speed forward, -1 for full speed back,  1 -1 for turn right
 	while steps > 0
 		steps = steps - 1
 		##left Legs Up
