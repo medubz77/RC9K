@@ -106,6 +106,75 @@ def writetolegs(pos, steps, time)
 	my_serial = nil
 end
 
+def complex_walk(steps, speed, gait, left, right)  ##  steps, how many steps,  speed, delay in walking movements,  gait, how big of steps,
+																									##left and right, 1 1 for full speed forward, -1 for full speed back,  1 -1 for turn right
+	while steps > 0
+		steps = steps - 1
+		##left Legs Up
+		lg0 = [$j1r,$j2d-20,$j3d-20]      #  $j1m +- 15 for movment.  Now will be $j1m + - gait * left (or right)
+		lg3 = [$j1l,$j2d-20,$j3d-20]
+		lg4 = [$j1r,$j2d-20,$j3d-20]
+		##right Legs Down
+		lg1 = [$j1r,$j2d+10,$j3d]
+		lg2 = [$j1l,$j2d+10,$j3d]
+		lg5 = [$j1r,$j2d+10,$j3d]
+		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
+		sleep speed
+		##all legs down
+		lg0 = [$j1r,$j2d+10,$j3d]
+		lg3 = [$j1l,$j2d+10,$j3d]
+		lg4 = [$j1r,$j2d+10,$j3d]
+		lg1 = [$j1r,$j2d+10,$j3d]
+		lg2 = [$j1l,$j2d+10,$j3d]
+		lg5 = [$j1r,$j2d+10,$j3d]
+		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
+		sleep speed
+		##left  Legs Down
+		lg0 = [$j1r,$j2d+10,$j3d]
+		lg3 = [$j1l,$j2d+10,$j3d]
+		lg4 = [$j1r,$j2d+10,$j3d]
+		##right	Legs Up
+		lg1 = [$j1r,$j2d-20,$j3d-20]
+		lg2 = [$j1l,$j2d-20,$j3d-20]
+		lg5 = [$j1r,$j2d-20,$j3d-20]
+		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
+		sleep speed
+		##left Rotate Hips
+		lg0 = [$j1l,$j2d+10,$j3d]
+		lg3 = [$j1r,$j2d+10,$j3d]
+		lg4 = [$j1l,$j2d+10,$j3d]
+		##right Legs Up
+		lg1 = [$j1l,$j2d-20,$j3d-20]
+		lg2 = [$j1r,$j2d-20,$j3d-20]
+		lg5 = [$j1l,$j2d-20,$j3d-20]
+		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
+		sleep speed
+		##all legs down
+		lg0 = [$j1l,$j2d+10,$j3d]
+		lg3 = [$j1r,$j2d+10,$j3d]
+		lg4 = [$j1l,$j2d+10,$j3d]
+		lg1 = [$j1l,$j2d+10,$j3d]
+		lg2 = [$j1r,$j2d+10,$j3d]
+		lg5 = [$j1l,$j2d+10,$j3d]
+		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
+		sleep speed
+		##left Legs Up
+		lg0 = [$j1l,$j2d-20,$j3d-20]
+		lg3 = [$j1r,$j2d-20,$j3d-20]
+		lg4 = [$j1l,$j2d-20,$j3d-20]
+		##right Legs Down
+		lg1 = [$j1l,$j2d+10,$j3d]
+		lg2 = [$j1r,$j2d+10,$j3d]
+		lg5 = [$j1l,$j2d+10,$j3d]
+		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
+		sleep speed
+	end
+	stand
+
+
+end
+
+
 def walk_cycle(steps, speed)
 	while steps > 0
 		steps = steps - 1
