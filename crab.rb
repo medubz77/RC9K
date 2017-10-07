@@ -113,8 +113,6 @@ def walk_cycle(steps)
 		lg0 = [$j1r,$j2d-20,$j3d-20]
 		lg3 = [$j1l,$j2d-20,$j3d-20]
 		lg4 = [$j1r,$j2d-20,$j3d-20]
-		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
-		sleep 0.5
 	##right Legs Down
 		lg1 = [$j1r,$j2d+10,$j3d]
 		lg2 = [$j1l,$j2d+10,$j3d]
@@ -125,8 +123,6 @@ def walk_cycle(steps)
 		lg0 = [$j1r,$j2d+10,$j3d]
 		lg3 = [$j1l,$j2d+10,$j3d]
 		lg4 = [$j1r,$j2d+10,$j3d]
-		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
-		sleep 0.5
 	##right	Legs Down
 		lg1 = [$j1r,$j2d-20,$j3d-20]
 		lg2 = [$j1l,$j2d-20,$j3d-20]
@@ -137,8 +133,6 @@ def walk_cycle(steps)
 		lg0 = [$j1l,$j2d+10,$j3d]
 		lg3 = [$j1r,$j2d+10,$j3d]
 		lg4 = [$j1l,$j2d+10,$j3d]
-		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
-		sleep 0.5
 	##right Legs Up
 		lg1 = [$j1l,$j2d-20,$j3d-20]
 		lg2 = [$j1r,$j2d-20,$j3d-20]
@@ -149,8 +143,6 @@ def walk_cycle(steps)
 		lg0 = [$j1l,$j2d-20,$j3d-20]
 		lg3 = [$j1r,$j2d-20,$j3d-20]
 		lg4 = [$j1l,$j2d-20,$j3d-20]
-		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
-		sleep 0.5
 	##right Legs Up
 		lg1 = [$j1l,$j2d+20,$j3d]
 		lg2 = [$j1r,$j2d+20,$j3d]
