@@ -108,9 +108,11 @@ end
 
 def complex_walk(steps, speed, gait, left, right)  ##  steps, how many steps,  speed, delay in walking movements,  gait, how big of steps,
 gaitr=$j1m+gait         #take mid position and add specified gait amount
-gaitrcent=$j1m+(gait*right)   #same as gaitr but apply right magnitude influence to center leg variable
+gaitrcentr=$j1m+(gait*right)   #same as gaitr but apply right magnitude influence to center leg variable.  Note, we need 4 center leg vars, 2 per leg...
 gaitl=$j1m-gait
-gaitlcent=$j1m-(gait*left)
+gaitlcentr=$j1m-(gait*right)   ##gait move right center leg right side
+gaitrcentl=$j1m+(gait*left)
+gaitlcentl=$j1m-(gait*left)
 gaitr=gaitr.to_i               #recast as ints, could be that floats cause legs to wig out hard
 gaitrcent=gaitrcent.to_i
 gaitl=gaitl.to_i
@@ -125,59 +127,59 @@ puts gaitlcent																							##left and right, 1 1 for full speed forwar
 		steps = steps - 1
 		##left Legs Up
 		lg0 = [gaitr,$j2d-20,$j3d-20]      #r  $j1m +- 15 for movment.  Now will be $j1m + - gait * left (or right)
-		lg3 = [gaitlcent,$j2d-20,$j3d-20]			#l
+		lg3 = [gaitlcentl,$j2d-20,$j3d-20]			#l
 		lg4 = [gaitr,$j2d-20,$j3d-20]			#r$jlm+15
 		##right Legs Down
 		lg1 = [gaitr,$j2d+10,$j3d]					#r
-		lg2 = [gaitlcent,$j2d+10,$j3d]					#l
+		lg2 = [gaitlcentr,$j2d+10,$j3d]					#l
 		lg5 = [gaitr,$j2d+10,$j3d]					#r
 		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
 		sleep speed
 		##all legs down
 		lg0 = [gaitr,$j2d+10,$j3d]				#r
-		lg3 = [gaitlcent,$j2d+10,$j3d]				#l
+		lg3 = [gaitlcentl,$j2d+10,$j3d]				#l
 		lg4 = [gaitr,$j2d+10,$j3d]				#r
 		lg1 = [gaitr,$j2d+10,$j3d]				#r
-		lg2 = [gaitlcent,$j2d+10,$j3d]				#l
+		lg2 = [gaitlcentr,$j2d+10,$j3d]				#l
 		lg5 = [gaitr,$j2d+10,$j3d]				#r
 		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
 		sleep speed
 		##left  Legs Down
 		lg0 = [gaitr,$j2d+10,$j3d]			#r
-		lg3 = [gaitlcent,$j2d+10,$j3d]			#l
+		lg3 = [gaitlcentl,$j2d+10,$j3d]			#l
 		lg4 = [gaitr,$j2d+10,$j3d]			#r
 		##right	Legs Up
 		lg1 = [gaitr,$j2d-20,$j3d-20]	#r
-		lg2 = [gaitlcent,$j2d-20,$j3d-20]	#l
+		lg2 = [gaitlcentr,$j2d-20,$j3d-20]	#l
 		lg5 = [gaitr,$j2d-20,$j3d-20]	#r
 		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
 		sleep speed
 		##left Rotate Hips
 		lg0 = [gaitl,$j2d+10,$j3d]  #l
-		lg3 = [gaitrcent,$j2d+10,$j3d]		#r
+		lg3 = [gaitrcentl,$j2d+10,$j3d]		#r
 		lg4 = [gaitl,$j2d+10,$j3d]		#l
 		##right Legs Up
 		lg1 = [gaitl,$j2d-20,$j3d-20]		#l
-		lg2 = [gaitrcent,$j2d-20,$j3d-20]		#r
+		lg2 = [gaitrcentr,$j2d-20,$j3d-20]		#r
 		lg5 = [gaitl,$j2d-20,$j3d-20]		#l
 		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
 		sleep speed
 		##all legs down
 		lg0 = [gaitl,$j2d+10,$j3d]		#l
-		lg3 = [gaitrcent,$j2d+10,$j3d]		#r
+		lg3 = [gaitrcentl,$j2d+10,$j3d]		#r
 		lg4 = [gaitl,$j2d+10,$j3d]		#l
 		lg1 = [gaitl,$j2d+10,$j3d]		#l
-		lg2 = [gaitrcent,$j2d+10,$j3d]		#r
+		lg2 = [gaitrcentr,$j2d+10,$j3d]		#r
 		lg5 = [gaitl,$j2d+10,$j3d]		#l
 		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
 		sleep speed
 		##left Legs Up
 		lg0 = [gaitl,$j2d-20,$j3d-20]		#l
-		lg3 = [gaitrcent,$j2d-20,$j3d-20]		#r
+		lg3 = [gaitrcentl,$j2d-20,$j3d-20]		#r
 		lg4 = [gaitl,$j2d-20,$j3d-20]		#l
 		##right Legs Down
 		lg1 = [gaitl,$j2d+10,$j3d]				#l
-		lg2 = [gaitrcent,$j2d+10,$j3d]				#r
+		lg2 = [gaitrcentr,$j2d+10,$j3d]				#r
 		lg5 = [gaitl,$j2d+10,$j3d]				#l
 		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
 		sleep speed
