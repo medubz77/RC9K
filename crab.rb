@@ -126,7 +126,7 @@ gaitrcentr=gaitrcentr.to_i
 gaitlcentr=gaitlcentr.to_i
 
 
-puts gaitl
+puts gaitlleft
 puts gaitlcentl																							##left and right, 1 1 for full speed forward, -1 for full speed back,  1 -1 for turn right
 	while steps > 0
 		steps = steps - 1
