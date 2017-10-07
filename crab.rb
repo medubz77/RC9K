@@ -122,7 +122,7 @@ gaitlcent=gaitlcent.to_i
 
 
 puts gaitl
-puts gaitlcent																							##left and right, 1 1 for full speed forward, -1 for full speed back,  1 -1 for turn right
+puts gaitlcentl																							##left and right, 1 1 for full speed forward, -1 for full speed back,  1 -1 for turn right
 	while steps > 0
 		steps = steps - 1
 		##left Legs Up
