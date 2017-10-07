@@ -107,10 +107,18 @@ def writetolegs(pos, steps, time)
 end
 
 def complex_walk(steps, speed, gait, left, right)  ##  steps, how many steps,  speed, delay in walking movements,  gait, how big of steps,
-gaitr=$j1m+gait
-gaitrcent=gaitr*right
+gaitr=$j1m+gait         #take mid position and add specified gait amount
+gaitrcent=$j1m+(gait*right)   #same as gaitr but apply right magnitude influence to center leg variable
 gaitl=$j1m-gait
-gaitlcent=gaitl*left
+gaitlcent=$j1m-(gait*left)
+gaitr=gaitr.to_i               #recast as ints, could be that floats cause legs to wig out hard
+gaitrcent=gaitrcent.to_i
+gaitl=gaitl.to_i
+gaitlcent=gaitlcent.to_i
+
+
+
+
 puts gaitl
 puts gaitlcent																							##left and right, 1 1 for full speed forward, -1 for full speed back,  1 -1 for turn right
 	while steps > 0
