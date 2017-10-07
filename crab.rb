@@ -114,11 +114,11 @@ gaitlcentr=$j1m-(gait*right)   ##gait move right center leg right side
 gaitrcentl=$j1m+(gait*left)
 gaitlcentl=$j1m-(gait*left)
 gaitr=gaitr.to_i               #recast as ints, could be that floats cause legs to wig out hard
-gaitrcent=gaitrcent.to_i
+gaitrcentl=gaitrcentl.to_i
 gaitl=gaitl.to_i
-gaitlcent=gaitlcent.to_i
-
-
+gaitlcentl=gaitlcentl.to_i
+gaitrcentr=gaitrcentr.to_i
+gaitlcentr=gaitlcentr.to_i
 
 
 puts gaitl
