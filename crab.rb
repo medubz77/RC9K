@@ -110,7 +110,7 @@ def complex_walk(steps, speed, gait, left, right)  ##  steps, how many steps,  s
 gaitr=$j1m+gait
 gaitrcent=gaitr*right
 gaitl=$j1m-gait
-gaitlcent=gaitr*left
+gaitlcent=gaitl*left
 puts gaitl
 puts gaitlcent																							##left and right, 1 1 for full speed forward, -1 for full speed back,  1 -1 for turn right
 	while steps > 0
