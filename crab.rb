@@ -111,7 +111,7 @@ gaitrleft=$j1m+leftgait         #take mid position and add specified gait amount
 gaitrcentr=$j1m+(rightgait*right)   #same as gaitr but apply right magnitude influence to center leg variable.  Note, we need 4 center leg vars, 2 per leg...
 gaitlleft=$j1m-leftgait
 
-gaitrright=$j1m-rightgait
+gaitrright=$j1m+rightgait
 gaitlright=$j1m-rightgait
 gaitlcentr=$j1m-(rightgait*right)   ##gait move right center leg right side
 gaitrcentl=$j1m+(leftgait*left)		# variables are what, what direction, what side
