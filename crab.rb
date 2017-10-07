@@ -118,7 +118,7 @@ def walk_cycle(steps)
 		lg2 = [$j1l,$j2d+10,$j3d]
 		lg5 = [$j1r,$j2d+10,$j3d]
 		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
-		sleep 0.1
+#		sleep 0.1
 	##all legs down
 		lg0 = [$j1r,$j2d+10,$j3d]
 		lg3 = [$j1l,$j2d+10,$j3d]
@@ -127,7 +127,7 @@ def walk_cycle(steps)
 		lg2 = [$j1l,$j2d+10,$j3d]
 		lg5 = [$j1r,$j2d+10,$j3d]
 		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
-		sleep 0.1
+#		sleep 0.1
 	##left  Legs Down
 		lg0 = [$j1r,$j2d+10,$j3d]
 		lg3 = [$j1l,$j2d+10,$j3d]
@@ -137,7 +137,7 @@ def walk_cycle(steps)
 		lg2 = [$j1l,$j2d-20,$j3d-20]
 		lg5 = [$j1r,$j2d-20,$j3d-20]
 		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
-		sleep 0.1
+#		sleep 0.1
 	##left Rotate Hips
 		lg0 = [$j1l,$j2d+10,$j3d]
 		lg3 = [$j1r,$j2d+10,$j3d]
@@ -147,7 +147,7 @@ def walk_cycle(steps)
 		lg2 = [$j1r,$j2d-20,$j3d-20]
 		lg5 = [$j1l,$j2d-20,$j3d-20]
 		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
-		sleep 0.1
+#		sleep 0.1
 	##all legs down
 		lg0 = [$j1l,$j2d+10,$j3d]
 		lg3 = [$j1r,$j2d+10,$j3d]
@@ -156,7 +156,7 @@ def walk_cycle(steps)
 		lg2 = [$j1r,$j2d+10,$j3d]
 		lg5 = [$j1l,$j2d+10,$j3d]
 		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
-		sleep 0.1
+#		sleep 0.1
 	##left Legs Up
 		lg0 = [$j1l,$j2d-20,$j3d-20]
 		lg3 = [$j1r,$j2d-20,$j3d-20]
@@ -166,7 +166,7 @@ def walk_cycle(steps)
 		lg2 = [$j1r,$j2d+10,$j3d]
 		lg5 = [$j1l,$j2d+10,$j3d]
 		writetolegs(lg0 + lg1 + lg2 + lg3 + lg4 + lg5, 1, 0)
-		sleep 0.1
+#		sleep 0.1
 	end
 	stand
 end
