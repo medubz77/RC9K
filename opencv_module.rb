@@ -2,13 +2,6 @@ require 'opencv'
 require 'benchmark'
 include OpenCV
 
-<<<<<<< Updated upstream
-window = GUI::Window.new("face detect")
-capture = CvCapture.open
-
-detector = CvHaarClassifierCascade::load("/home/pi/tmp/opencv/data/haarcascades_GPU/haarcascade_frontalface_alt2.xml")
-#detector = CvHaarClassifierCascade::load("/usr/local/share/OpenCV/haarcascades/haarcascade_frontalface_alt.xml")
-=======
 def compare_surf_descriptors(d1, d2, best, length)
   raise ArgumentError unless (length % 4) == 0
   total_cost = 0
@@ -74,7 +67,6 @@ def locate_planar_object(object_keypoints, object_descriptors,
     pt1 << object_keypoints[ptpairs[i * 2]].pt
     pt2 << image_keypoints[ptpairs[i * 2 + 1]].pt
   }
->>>>>>> Stashed changes
 
   _pt1 = CvMat.new(1, n, CV_32F, 2)
   _pt2 = CvMat.new(1, n, CV_32F, 2)
@@ -91,10 +83,6 @@ def locate_planar_object(object_keypoints, object_descriptors,
     y = (h[3][0] * x + h[4][0] * y + h[5][0]) * z
     dst_corners << CvPoint.new(x.to_i, y.to_i)
   }
-<<<<<<< Updated upstream
-  window.show image
-  break if GUI::wait_key(10)
-=======
 
   dst_corners
 end
@@ -131,7 +119,6 @@ tms = Benchmark.measure {
 
   image_keypoints, image_descriptors = image.extract_surf(param)
   puts "Image Descriptors: #{image_descriptors.size}"
->>>>>>> Stashed changes
 }
 puts "Extraction time = #{tms.real * 1000} ms"
 
