@@ -6,7 +6,7 @@ include OpenCV
 
 window = GUI::Window.new("face detect")
 capture = CvCapture.open
-detector = CvHaarClassifierCascade::load("/usr/local/share/OpenCV/haarcascades/haarcascade_frontalface_alt.xml")
+detector = CvHaarClassifierCascade::load("/home/pi/tmp/opencv/data/haarcascades_GPU/haarcascade_frontalface_alt.xml")
 #detector = CvHaarClassifierCascade::load("./data/haarcascades/haarcascade_frontalface_alt.xml")
 
 loop {
