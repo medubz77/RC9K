@@ -15,5 +15,5 @@ loop {
     image.rectangle! rect.top_left, rect.bottom_right, :color => CvColor::Red
   }
   window.show image
-  break if GUI::wait_key(100)
+  break if GUI::wait_key(10)
 }
