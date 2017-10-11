@@ -1,4 +1,3 @@
-#!/usr/bin/env ruby
 # face_detect.rb
 require "rubygems"
 require "opencv"
