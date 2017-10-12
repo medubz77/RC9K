@@ -1,7 +1,8 @@
 require 'rpi_gpio'
-RPi::GPIO.set_numbering :board 
+RPi::GPIO.set_numbering :board
+RPi::GPIO.setup 3, :as => :output, :initialize => :low #setting the intial state for pin 3 as low
 class MotorPower
-  RPi::GPIO.setup 3, :as => :output, :initialize => :low #setting the intial state for pin 3
+
   def toggle(state)
     if state == "on"
       RPi::GPIO.set_high 3
