@@ -22,6 +22,20 @@ def initialize
 	$periter=[150,150,140,150,150,140,150,150,140,150,150,140,150,150,140,150,150,140]
 end
 
+def watcher
+fork do
+check_switch
+	while true
+sleep 100
+
+
+
+end
+
+
+end
+
+
 def start_video
 # $v_pid = spawn '/home/pi/rc9k/vlc_stream.sh'
 	$v_pid = fork do
@@ -125,13 +139,13 @@ gaitlcentl=gaitlcentl.to_i
 gaitrcentr=gaitrcentr.to_i
 gaitlcentr=gaitlcentr.to_i
 
-puts "centl"
-puts gaitrcentl
-puts gaitlcentl
+#puts "centl"
+#puts gaitrcentl
+#puts gaitlcentl
 
-puts "centr"
-puts gaitrcentr
-puts gaitlcentr
+#puts "centr"
+#puts gaitrcentr
+#puts gaitlcentr
 
 																							##left and right, 1 1 for full speed forward, -1 for full speed back,  1 -1 for turn right
 	while steps > 0
