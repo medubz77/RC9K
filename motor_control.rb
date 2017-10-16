@@ -1,15 +1,15 @@
 require 'rpi_gpio'
 RPi::GPIO.set_numbering :board # sets the pin number to the board physical pins
-RPi::GPIO.setup 7, :as => :output, :initialize => :low #setting the intial state for the pin as low
-RPi::GPIO.setup 15, :as => :output, :initialize => :high  #  pi CPU state on
+RPi::GPIO.setup 15, :as => :output, :initialize => :low #setting the intial state for the pin as low
+RPi::GPIO.setup 7, :as => :output, :initialize => :high  #  pi CPU state on
 Rpi::GPIO.setup 11, :as => :input, :pull=>:up  #moton off control pin
-Rpi::GPIO.setup 13 :as => :input, :pull=>:up  #halt pin
+Rpi::GPIO.setup 13, :as => :input, :pull=>:up  #halt pin
 class MotorPower
 state="off"
 
 
 def motors_off
-RPi::GPIO.set_low 7
+RPi::GPIO.set_low 15
 end
 
 def check_switch
@@ -18,7 +18,8 @@ toggle()
 sleep 1000
 end
 if Rpi::GPIO.low?  13
-Rpi::GPIO.set_low 15
+Rpi::GPIO.set_low 7
+motors_off
 puts "HALTING"
 cmd='halt'
 
@@ -28,10 +29,10 @@ end
 
 def toggle
   if state == "on"
-    RPi::GPIO.set_high 7
+    RPi::GPIO.set_high 15
     state="off"
   elsif state == "off"
-    RPi::GPIO.set_low 7
+    RPi::GPIO.set_low 15
     state="on"
   end
 end
@@ -41,9 +42,9 @@ end
 
   def toggle(state)
     if state == "on"
-      RPi::GPIO.set_high 7
+      RPi::GPIO.set_high 15
     elsif state == "off"
-      RPi::GPIO.set_low 7
+      RPi::GPIO.set_low 15
     end
   end
 end
