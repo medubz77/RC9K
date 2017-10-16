@@ -5,7 +5,7 @@ require 'rubyserial'
 #require 'socket' # Get sockets from stdlib
 
 #require_relative './server.rb'
-
+require './motor_control.rb'
 class Crab
 # Instantiate global variables
 def initialize
