@@ -14,7 +14,7 @@ end
 
 def check_switch
 if RPi::GPIO.low? 11
-toggle()
+togglemotorpower
 sleep 1000
 end
 if RPi::GPIO.low?  13
@@ -27,7 +27,7 @@ end
 end
 
 
-def toggle
+def togglemotorpower
   if state == "on"
     RPi::GPIO.set_high 15
     state="off"
