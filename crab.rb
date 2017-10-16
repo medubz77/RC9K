@@ -404,7 +404,7 @@ when "wave"
 	move("laydown")
 	move("reset")
 	end
-#end
+end
 
 end
 def testing(data)
