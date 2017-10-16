@@ -22,18 +22,18 @@ def initialize
 	$periter=[150,150,140,150,150,140,150,150,140,150,150,140,150,150,140,150,150,140]
 end
 
-def watcher
-fork do
-check_switch
-	while true
-sleep 100
+#ef watcher
+##fork do
+#check_switch
+	#while true
+#sleep 100
 
 
 
-end
+#end
 
 
-end
+#end
 
 
 def start_video
@@ -404,7 +404,7 @@ when "wave"
 	move("laydown")
 	move("reset")
 	end
-end
+#end
 
 end
 def testing(data)
