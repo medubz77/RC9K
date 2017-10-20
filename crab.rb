@@ -22,18 +22,19 @@ def initialize
 	$periter=[150,150,140,150,150,140,150,150,140,150,150,140,150,150,140,150,150,140]
 end
 
-#ef watcher
-##fork do
-#check_switch
-	#while true
-#sleep 100
+def watcher
+fork do
+
+	while true
+		check_switch
+		sleep 100
+end  #end while
 
 
+end #end do
 
-#end
 
-
-#end
+end #end sub
 
 
 def start_video
