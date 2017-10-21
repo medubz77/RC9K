@@ -77,7 +77,7 @@ def togglestateLED
   if $ledstate == "on"
     RPi::GPIO.set_high $stateLED
     $ledstate="off"
-  elsif $ledstate == "off"
+  else 
     RPi::GPIO.set_low $stateLED
     $ledstate="on"
 end
