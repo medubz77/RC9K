@@ -1,12 +1,12 @@
 require 'rpi_gpio'
-motorpin =15
-activepin=16
-sonarin=7
-sonarout=12
-motorbutton=11
-haltbutton=13
-motorLED=18
-stateLED=22
+$motorpin =15
+$activepin=16
+$sonarin=7
+$sonarout=12
+$motorbutton=11
+$haltbutton=13
+$motorLED=18
+$stateLED=22
 
 RPi::GPIO.set_numbering :board # sets the pin number to the board physical pins
 RPi::GPIO.setup 15, :as => :output, :initialize => :low #setting the intial state for the pin as low, motor control line
@@ -18,42 +18,73 @@ RPi::GPIO.setup 13, :as => :input, :pull=>:up  #halt pin
 RPi::GPIO.setup 18, :as => :output, :initialize => :low  #LED
 RPi::GPIO.setup 22, :as => :output, :initialize => :low  #LED
 class MotorPower
-motorstate="off"
+$motorstate="off"
+$ledstate="off"
+
+def sonarPing
+RPi::GPIO.set_high $sonarout
+sleep 1
+start_time=Time.now
+end_time=Time.now
+RPi::GPIO.set_low $sonarout
+while (RPi::GPIO.low?)
+    end_time=Time.now
+  end
+elapsed_time=end_time-start_time
+distance=(elapsed_time*34300)/2
+puts distance
+return distance
+end
+
 
 
 def motors_off
-RPi::GPIO.set_low 18
-  RPi::GPIO.set_low 15
+RPi::GPIO.set_low $motorLED
+  RPi::GPIO.set_low $motorpin
+$motorstate="off"
 end
+
+
 def motors_on
-  RPi::GPIO.set_high 15
-  RPi::GPIO.set_high 18
+  RPi::GPIO.set_high $motorpin
+  RPi::GPIO.set_high $motorLED
+$motorstate="on"
 end
 
 def check_switch
-if RPi::GPIO.high? 11
-togglemotorpower
-sleep 1000
-end
-if RPi::GPIO.high?  13
-RPi::GPIO.set_low 16
-motors_off
-puts "HALTING"
-cmd='halt'
+  if RPi::GPIO.high? $motorbutton
+      togglemotorpower
+      sleep 1000
+    end
+    if RPi::GPIO.high?  $haltbutton
+      RPi::GPIO.set_low $activepin
+      motors_off
+      puts "HALTING"
+      cmd='halt'
 
+    end
+end
+
+def togglestateLED
+  if $ledstate == "on"
+    RPi::GPIO.set_high $stateLED
+    $ledstate="off"
+  elsif $ledstate == "off"
+    RPi::GPIO.set_low $stateLED
+    $ledstate="on"
 end
 end
 
 
 def togglemotorpower
-  if motorstate == "on"
-    RPi::GPIO.set_high 15
-    motorstate="off"
-RPi::GPIO.set_high 18
-  elsif motorstate == "off"
-    RPi::GPIO.set_low 15
-    RPi::GPIO.set_low 18
-    motorstate="on"
+  if $motorstate == "on"
+    RPi::GPIO.set_high $motorpin
+    $motorstate="off"
+RPi::GPIO.set_high $motorLED
+  elsif $motorstate == "off"
+    RPi::GPIO.set_low $motorpin
+    RPi::GPIO.set_low $motorLED
+    $motorstate="on"
   end
 end
 
@@ -62,11 +93,13 @@ end
 
   def toggle(state)
     if state == "on"
-      RPi::GPIO.set_high 15
-      RPi::GPIO.set_high 18
+      RPi::GPIO.set_high $motorpin
+      RPi::GPIO.set_high $motorLED
+      $motorstate="on"
     elsif state == "off"
-      RPi::GPIO.set_low 18
-      RPi::GPIO.set_low 15
+      RPi::GPIO.set_low $motorLED
+      RPi::GPIO.set_low $motorpin
+      $motorstate=""
     end
   end
 end
