@@ -53,6 +53,26 @@ RPi::GPIO.set_low $motorLED
 $motorstate="off"
 end
 
+def comeon
+RPi::GPIO.set_low $stateLED
+sleep 0.5
+RPi::GPIO.set_high $stateLED
+sleep 0.5
+RPi::GPIO.set_low $stateLED
+sleep 0.5
+RPi::GPIO.set_high $stateLED
+sleep 0.5
+RPi::GPIO.set_low $stateLED
+sleep 0.5
+RPi::GPIO.set_high $stateLED
+sleep 0.5
+RPi::GPIO.set_low $stateLED
+sleep 0.5
+RPi::GPIO.set_high $stateLED
+
+end
+
+
 
 def motors_on
   RPi::GPIO.set_high $motorpin
