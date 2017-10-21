@@ -20,21 +20,14 @@ def initialize
 	$legs=[150,150,140,150,150,140,150,150,140,150,150,140,150,150,140,150,150,140]
 	$tomove=[150,150,140,150,150,140,150,150,140,150,150,140,150,150,140,150,150,140]
 	$periter=[150,150,140,150,150,140,150,150,140,150,150,140,150,150,140,150,150,140]
-end
+	mc=MotorPower.new
+	mc.check_switch
 
-def watcher
-fork do
+#def watcher
+#		mc.check_switch
 
-	while true
-		check_switch
-		sleep 0.10
-end  #end while
+#end
 
-
-end #end do
-
-
-end #end sub
 
 
 def start_video
