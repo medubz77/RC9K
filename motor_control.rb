@@ -56,7 +56,14 @@ def check_switch
 fork do
   while (true)
     RPi::GPIO.set_low $stateLED
-    sleep 0.5
+    #sleep 0.5
+    start_time=Time.now
+    end_time=start_time
+while (end_time-start_time<0.5)
+end_time=Time.now
+end
+
+
 RPi::GPIO.set_high $stateLED
   #togglestateLED
   if RPi::GPIO.high? $motorbutton
