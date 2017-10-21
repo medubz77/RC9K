@@ -26,7 +26,7 @@ RPi::GPIO.set_high $sonarout
 #sleep 0.001
 startsleep_time=Time.now
 endsleep_time=startsleep_time
-while (endsleep_time-startsleep_time<0.5)
+while (endsleep_time-startsleep_time<0.01)
 endsleep_time=Time.now
 end
 
