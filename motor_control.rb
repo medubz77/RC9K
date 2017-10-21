@@ -25,7 +25,7 @@ def sonarPing
 RPi::GPIO.set_high $sonarout
 sleep 1
 start_time=Time.now
-end_time=Time.now
+end_time=start_time
 RPi::GPIO.set_low $sonarout
 while ((RPi::GPIO.low? $sonarin))
     end_time=Time.now
