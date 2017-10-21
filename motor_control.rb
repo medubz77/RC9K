@@ -1,6 +1,6 @@
 require 'rpi_gpio'
 $motorpin =15
-$activepin=16
+$unusedLED=16
 $sonarin=7
 $sonarout=12
 $motorbutton=11
@@ -10,13 +10,13 @@ $stateLED=22
 
 RPi::GPIO.set_numbering :board # sets the pin number to the board physical pins
 RPi::GPIO.setup 15, :as => :output, :initialize => :low #setting the intial state for the pin as low, motor control line
-RPi::GPIO.setup 16, :as => :output, :initialize => :high  #  pi CPU state on
+RPi::GPIO.setup 22, :as => :output, :initialize => :high  #  pi CPU state on
 RPi::GPIO.setup 7, :as => :input  #now used for sonar eco line
 RPi::GPIO.setup 12, :as => :output, :initialze => :low # sonar trigger line
 RPi::GPIO.setup 11, :as => :input, :pull=>:up  #moton off control pin
 RPi::GPIO.setup 13, :as => :input, :pull=>:up  #halt pin
-RPi::GPIO.setup 18, :as => :output, :initialize => :low  #LED
-RPi::GPIO.setup 22, :as => :output, :initialize => :low  #LED
+RPi::GPIO.setup 18, :as => :output, :initialize => :low  #LED motorLED
+RPi::GPIO.setup 16, :as => :output, :initialize => :low  #LED
 class MotorPower
 $motorstate="off"
 $ledstate="off"
@@ -55,6 +55,7 @@ end
 def check_switch
 fork do
   while (true)
+    sleep 0.5
   togglestateLED
   if RPi::GPIO.high? $motorbutton
 
@@ -62,7 +63,7 @@ fork do
       sleep 1
     end
     if RPi::GPIO.high?  $haltbutton
-      RPi::GPIO.set_low $activepin
+      RPi::GPIO.set_low $statepin
       motors_off
       puts "HALTING"
       cmd='halt'
