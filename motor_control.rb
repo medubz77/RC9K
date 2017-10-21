@@ -53,9 +53,10 @@ $motorstate="on"
 end
 
 def check_switch
+  togglestateLED
   if RPi::GPIO.high? $motorbutton
       togglemotorpower
-      sleep 1000
+      sleep 1
     end
     if RPi::GPIO.high?  $haltbutton
       RPi::GPIO.set_low $activepin

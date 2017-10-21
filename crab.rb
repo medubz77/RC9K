@@ -27,7 +27,7 @@ fork do
 
 	while true
 		check_switch
-		sleep 100
+		sleep 0.10
 end  #end while
 
 

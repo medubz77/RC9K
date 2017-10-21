@@ -26,7 +26,7 @@ Servo fru;
 
 void setup()
 {
- 
+
 rll.attach(22);
 rlm.attach(24);
 rlu.attach(26);
@@ -50,16 +50,16 @@ flu.attach(32);
 frl.attach(52);
 frm.attach(2);
 fru.attach(3);
-  
-  
-  
-  
+
+
+
+
  Serial.begin( 115200);
  while(!Serial)
  {
  }
  //Leg(x,xxx,xxx,xxx)Leg(leg number, upper, middle, lower)
- //123456789012345678 
+ //123456789012345678
 }
 void loop()
 {
@@ -68,6 +68,12 @@ if (Serial.available())
 {
   serin=Serial.readStringUntil(')') ;
 }
+if(serin.indexOf("MotorVoltage")==0)
+{
+int motorVoltage=analongRead(A0);
+Serial.println("VoltageFromSource="+motorVoltage);
+
+}
 
 if(serin.indexOf("Leg")==0)
 {
@@ -75,59 +81,59 @@ if(serin.indexOf("Leg")==0)
   String LegUpper=serin.substring(6,9);
   String LegMiddle=serin.substring(10,13);
   String LegLower=serin.substring(14,17);  //thanks waldo!
-  
+
   //Serial.println(serin);
   int leg=LegNumber.toInt();
   int upper=LegUpper.toInt();
   int middle=LegMiddle.toInt();
   int lower=LegLower.toInt();
  // Serial.println("I am getting Leg " + String(leg) + " Upper " + String(upper) + " Middle " + String(middle) + " Lower " + String(lower));
-  WriteToLeg(leg, upper, middle, lower);  
-  
-}
-
-
-
+  WriteToLeg(leg, upper, middle, lower);
 
 }
 
-  
+
+
+
+}
+
+
 void WriteToLeg(int leg, int upper, int middle, int lower)
 {
-  
+
 switch (leg)
   {
- case 0:  
+ case 0:
      rll.writeMicroseconds((lower*10));
      rlm.writeMicroseconds((middle*10));
      rlu.writeMicroseconds((upper*10));
   break;
 
- case 1:  
+ case 1:
      rrl.writeMicroseconds((lower*10));
      rrm.writeMicroseconds((middle*10));
      rru.writeMicroseconds((upper*10));
   break;
 
- case 2:  
+ case 2:
      mll.writeMicroseconds((lower*10));
      mlm.writeMicroseconds((middle*10));
      mlu.writeMicroseconds((upper*10));
   break;
 
- case 3:  
+ case 3:
      mrl.writeMicroseconds((lower*10));
      mrm.writeMicroseconds((middle*10));
      mru.writeMicroseconds((upper*10));
   break;
 
- case 4:  
+ case 4:
      fll.writeMicroseconds((lower*10));
      flm.writeMicroseconds((middle*10));
      flu.writeMicroseconds((upper*10));
   break;
 
- case 5:  
+ case 5:
      frl.writeMicroseconds((lower*10));
      frm.writeMicroseconds((middle*10));
      fru.writeMicroseconds((upper*10));
@@ -137,14 +143,3 @@ switch (leg)
  // Serial.println("Wrote to "+String(leg)+ ","+String(upper*10)+","+String(middle*10)+","+String(lower*10));
 
 }
-
-
-
-
-  
-  
-  
-  
-  
-  
-
