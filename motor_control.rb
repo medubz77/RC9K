@@ -23,7 +23,15 @@ $ledstate="off"
 
 def sonarPing
 RPi::GPIO.set_high $sonarout
-sleep 0.001
+#sleep 0.001
+startsleep_time=Time.now
+endsleep_time=start_time
+while (endsleep_time-startsleep_time<0.5)
+endsleep_time=Time.now
+end
+
+
+
 start_time=Time.now
 end_time=start_time
 RPi::GPIO.set_low $sonarout
@@ -53,7 +61,7 @@ $motorstate="on"
 end
 
 def check_switch
-fork do
+Thread.new{
   while (true)
     RPi::GPIO.set_low $stateLED
     #sleep 0.5
@@ -81,7 +89,7 @@ RPi::GPIO.set_high $stateLED
 
 end
 
-end
+}
 
 end
 
