@@ -23,11 +23,11 @@ $ledstate="off"
 
 def sonarPing
 RPi::GPIO.set_high $sonarout
-sleep 20
+sleep 0.010
 start_time=Time.now
 end_time=start_time
 RPi::GPIO.set_low $sonarout
-while ((RPi::GPIO.low? $sonarin))
+while ((RPi::GPIO.low? $sonarin)&& (end_time-start_time<1))
     end_time=Time.now
   end
 elapsed_time=end_time-start_time
