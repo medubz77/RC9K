@@ -57,7 +57,7 @@ fork do
   while (true)
     RPi::GPIO.set_low $stateLED
     sleep 0.5
-RPi::GPIO.set_high $statLED
+RPi::GPIO.set_high $stateLED
   #togglestateLED
   if RPi::GPIO.high? $motorbutton
 
