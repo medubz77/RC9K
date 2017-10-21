@@ -29,6 +29,8 @@ def check_a_button
 
   after :pin => motorpin, :goes => :high do
     motorledpin.on
+    sleep 1
+    motorledpin.off
   end
 
   PiPiper.wait
