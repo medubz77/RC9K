@@ -70,7 +70,7 @@ if (Serial.available())
 }
 if(serin.indexOf("MotorVoltage")==0)
 {
-int motorVoltage=analongRead(A0);
+int motorVoltage=analogRead(A0);
 Serial.println("VoltageFromSource="+motorVoltage);
 
 }
