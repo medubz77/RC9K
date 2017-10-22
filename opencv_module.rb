@@ -10,7 +10,7 @@ cvmat = capture.query
 # so to be sure, convert the image
 # otherwise you will get an OpenCV::CvStsAssert exception.
 loop {
-cvmat = cvmat.BGR2GRAY
+#cvmat = cvmat.BGR2GRAY
 
 # Use the "canny" edge detection algorithm (http://en.wikipedia.org/wiki/Canny_edge_detector)
 # Parameters are two colors that are then used to determine possible corners
@@ -53,10 +53,10 @@ while contour
     box = contour.min_area_rect2
     puts "found minimal rectangle with its center at (#{box.center.x.round},#{box.center.y.round}), width of #{box.size.width.round}px, height of #{box.size.height.round} and an angle of #{box.angle.round} degree"
   end
-
+  window.show cvmat
   contour = contour.h_next
 end
-  window.show cvmat
+
 #  image = capture.query
   break if GUI::wait_key(100)
 }
