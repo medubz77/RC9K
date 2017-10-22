@@ -10,7 +10,7 @@ cvmat = capture.query
 # so to be sure, convert the image
 # otherwise you will get an OpenCV::CvStsAssert exception.
 loop {
-#cvmat = cvmat.BGR2GRAY
+cvmat = cvmat.BGR2GRAY
 
 # Use the "canny" edge detection algorithm (http://en.wikipedia.org/wiki/Canny_edge_detector)
 # Parameters are two colors that are then used to determine possible corners
