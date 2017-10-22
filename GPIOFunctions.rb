@@ -19,15 +19,15 @@ $stateLED=22
 #RPi::GPIO.setup 13, :as => :input, :pull=>:up  #halt pin
 #RPi::GPIO.setup 18, :as => :output, :initialize => :low  #LED motorLED
 #RPi::GPIO.setup 16, :as => :output, :initialize => :low  #LED
-motorpin = PiPiper::Pin.new(:pin => 11, :direction => :in, :pull => :up)
-motorledpin = PiPiper::Pin.new(:pin => 18, :direction => :out)
+motorpin = PiPiper::Pin.new(:pin => $motorbutton, :direction => :in, :pull => :up)
+motorledpin = PiPiper::Pin.new(:pin => $motorLED, :direction => :out)
 class InOut
 
 def check_a_button
 
 
 
-  after :pin => motorpin, :goes => :high do
+  after :pin => $motorbutton, :goes => :high do
     motorledpin.on
     sleep 1
     motorledpin.off
