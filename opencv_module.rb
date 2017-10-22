@@ -56,6 +56,6 @@ while contour
   contour = contour.h_next
 end
 #  image = capture.query
-  window.show contour
-  break if GUI::wait_key(100)
 }
+window.show contour
+break if GUI::wait_key(100)
