@@ -26,12 +26,17 @@ class InOut
 def check_a_button
 
 
+after :motorpin.changed?
+puts "test"
+end
 
-  after :pin => $motorbutton, :goes => :high do
-    motorledpin.on
-    sleep 1
-    motorledpin.off
-  end
+
+
+#  after :pin => $motorbutton, :goes => :high do
+#    motorledpin.on
+#    sleep 1
+#    motorledpin.off
+#  end
 
   PiPiper.wait
 
