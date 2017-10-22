@@ -2,7 +2,6 @@ require "rubygems"
 require "opencv"
 
 include OpenCV
-
 window = GUI::Window.new("detect")
 capture = CvCapture.open
 cvmat = capture.query
@@ -10,6 +9,7 @@ cvmat = capture.query
 # The "canny" edge-detector does only work with grayscale images
 # so to be sure, convert the image
 # otherwise you will get an OpenCV::CvStsAssert exception.
+loop {
 cvmat = cvmat.BGR2GRAY
 
 # Use the "canny" edge detection algorithm (http://en.wikipedia.org/wiki/Canny_edge_detector)
