@@ -53,9 +53,10 @@ while contour
     box = contour.min_area_rect2
     puts "found minimal rectangle with its center at (#{box.center.x.round},#{box.center.y.round}), width of #{box.size.width.round}px, height of #{box.size.height.round} and an angle of #{box.angle.round} degree"
   end
-  window.show cvmat
-  break if GUI::wait_key(100)
+
   contour = contour.h_next
 end
+  window.show cvmat
 #  image = capture.query
+  break if GUI::wait_key(100)
 }
