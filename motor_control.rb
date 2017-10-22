@@ -39,6 +39,14 @@ RPi::GPIO.set_low $sonarout
 while ((RPi::GPIO.low? $sonarin)&& (end_time-start_time<1))
     end_time=Time.now
   end
+start_time=Time.now
+while ((RPi::GPIO.high? $sonarin)&& (end_time-start_time<1))
+    end_time=Time.now
+  end
+
+
+
+
 elapsed_time=end_time-start_time
 puts elapsed_time
 distance=(elapsed_time*34300)/2
