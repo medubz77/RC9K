@@ -1,4 +1,5 @@
 require 'rpi_gpio'
+require 'thread'
 $motorpin =15
 $unusedLED=16
 $sonarin=7
@@ -81,18 +82,16 @@ $motorstate="on"
 end
 
 def check_switch
-Thread.new{
+runthis= Thread.new{
   while (1==1)
     RPi::GPIO.set_low $stateLED
-    #sleep 0.5
-    start_time=Time.now
-    end_time=start_time
-    while (end_time-start_time<0.5)
-      end_time=Time.now
-    end
-
-
-    RPi::GPIO.set_high $stateLED
+    sleep 0.5
+    #start_time=Time.now
+    #end_time=start_time
+    #while (end_time-start_time<0.5)
+  #    end_time=Time.now
+  #  end
+  RPi::GPIO.set_high $stateLED
   #togglestateLED
     if RPi::GPIO.high? $motorbutton
 
