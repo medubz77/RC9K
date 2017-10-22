@@ -85,7 +85,7 @@ def check_switch
 runthis= Thread.new{
   while (1==1)
     RPi::GPIO.set_low $stateLED
-    sleep 0.5
+    sleep 0.25
     #start_time=Time.now
     #end_time=start_time
     #while (end_time-start_time<0.5)
@@ -105,7 +105,7 @@ runthis= Thread.new{
       cmd='halt'
 
     end
-
+sleep 0.25
   end
 
   }
