@@ -26,7 +26,7 @@ class InOut
 def check_a_button
 
 
-after :motorpin.changed?
+after motorpin.changed?
 puts "test"
 
 PiPiper.wait
