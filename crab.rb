@@ -434,5 +434,5 @@ def testing(data)
 	$test_j3 = leg_hash["pos3"].to_i
 	crab.test_leg($leg_to_test, $test_j1,$test_j2, $test_j3)
 end
-
+end
 #srvr
