@@ -3,9 +3,8 @@ require 'rubyserial'
 # Require CSV for CSV functionality
 #require 'csv'
 #require 'socket' # Get sockets from stdlib
-
 #require_relative './server.rb'
-require './GPIOFunctions.rb'
+require './motor_control.rb'
 class Crab
 # Instantiate global variables
 def initialize
