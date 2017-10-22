@@ -28,6 +28,9 @@ def check_a_button
 
 after :motorpin.changed?
 puts "test"
+
+PiPiper.wait
+
 end
 
 
@@ -38,7 +41,7 @@ end
 #    motorledpin.off
 #  end
 
-  PiPiper.wait
+
 
 
 
