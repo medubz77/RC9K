@@ -120,9 +120,10 @@ voltage=voltage[18,22]
 #puts voltage
 voltage=voltage.to_i
 voltage= ((voltage/1024.0)*13)
+puts voltage
 if (voltage<10)
 puts "battery is low"
-mc.motors_off
+$mc.motors_off
 end
 
 	my_serial.close
