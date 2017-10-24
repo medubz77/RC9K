@@ -121,7 +121,7 @@ voltage=voltage[18,22]
 voltage=voltage.to_i
 voltage= ((voltage/1024.0)*13)
 puts voltage
-if (voltage<10&&voltage!=0)
+if (voltage<8.5&&voltage!=0)
 puts "battery is low"
 $mc.motors_off
 end
