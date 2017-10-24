@@ -34,6 +34,8 @@ else:
 	camera = cv2.VideoCapture(args["video"])
 
 # keep looping
+
+outputs  = open(“tempcamera”, “w”)
 while True:
 	# grab the current frame
 	(grabbed, frame) = camera.read()
@@ -99,11 +101,15 @@ while True:
 	# show the frame to our screen
 	cv2.imshow("Frame", frame)
 	key = cv2.waitKey(1) & 0xFF
-	print center
+	outputs.write(center)
+	outputs.write(radius)
+
+
 	# if the 'q' key is pressed, stop the loop
 	if key == ord("q"):
 		break
 
 # cleanup the camera and close any open windows
+outputs.close()
 camera.release()
 cv2.destroyAllWindows()
