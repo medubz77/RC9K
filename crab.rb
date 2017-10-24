@@ -72,6 +72,9 @@ def test_leg(leg, pos1, pos2, pos3)
 end
 
 
+
+
+
 def writetolegs(pos, steps, time)
   #legs_pos = calibrate
 	my_serial = Serial.new("/dev/ttyACM0", 115200)
@@ -111,6 +114,9 @@ my_serial.write("Leg(3,#{$legs[9]},#{$legs[10]},#{$legs[11]})")
 		sleep 0.025
 		#puts steps
 	end
+my_serial.write("MotorVoltage")
+voltage=my_serial.readline("\r")
+puts voltage
 	my_serial.close
 	my_serial = nil
 end
