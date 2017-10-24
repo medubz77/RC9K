@@ -116,7 +116,8 @@ my_serial.write("Leg(3,#{$legs[9]},#{$legs[10]},#{$legs[11]})")
 	end
 my_serial.write("MotorVoltage")
 voltage=my_serial.read(24)
-voltage=voltage[19,22]
+voltage=voltage[18,22]
+puts voltage
 voltage.to_i
 puts (voltage*13)
 	my_serial.close
