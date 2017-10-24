@@ -19,8 +19,8 @@ def initialize
 	$legs=[150,150,140,150,150,140,150,150,140,150,150,140,150,150,140,150,150,140]
 	$tomove=[150,150,140,150,150,140,150,150,140,150,150,140,150,150,140,150,150,140]
 	$periter=[150,150,140,150,150,140,150,150,140,150,150,140,150,150,140,150,150,140]
-	#mc=MotorPower.new
-	#mc.check_switch
+	$mc=MotorPower.new
+	$mc.check_switch
 
 #def watcher
 #		mc.check_switch
@@ -119,7 +119,12 @@ voltage=my_serial.read(24)
 voltage=voltage[18,22]
 #puts voltage
 voltage=voltage.to_i
-puts ((voltage/1024.0)*13)
+voltage= ((voltage/1024.0)*13)
+if (voltage<10)
+puts "battery is low"
+mc.motors_off
+
+
 	my_serial.close
 	my_serial = nil
 end
