@@ -102,7 +102,7 @@ def writetolegs(pos, steps, time)
 
 		#my_serial.write("Leg(3,#{$legs[9]},#{((($legs[10]-150)*1.10)+150).to_i},#{$legs[11]})")
 my_serial.write("Leg(3,#{$legs[9]},#{$legs[10]},#{$legs[11]})")
-puts legs[11]
+puts $legs[11]
 
 		my_serial.write("Leg(4,#{$legs[12]},#{$legs[13]},#{$legs[14]})")
 
