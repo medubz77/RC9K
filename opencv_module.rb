@@ -1,6 +1,5 @@
 
 output = `ball_tracking.py`
-
-
-
-puts "#{{output}}"
+while !output.blank?
+  puts "#{output}"
+end
