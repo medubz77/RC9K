@@ -115,7 +115,7 @@ my_serial.write("Leg(3,#{$legs[9]},#{$legs[10]},#{$legs[11]})")
 		#puts steps
 	end
 my_serial.write("MotorVoltage")
-voltage=my_serial.readline("\r")
+voltage=my_serial.read(24)
 puts voltage
 	my_serial.close
 	my_serial = nil
