@@ -7,7 +7,7 @@ system("python GrabImage.py") # This will return true
 original_window = GUI::Window.new "original"
 hough_window = GUI::Window.new "hough circles"
 
-image = IplImage::load "images.png"
+image = IplImage::load "image.png"
 gray = image.BGR2GRAY
 
 result = image.clone
