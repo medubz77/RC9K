@@ -120,7 +120,7 @@ voltage=voltage[18,22]
 #puts voltage
 voltage=voltage.to_i
 voltage= ((voltage/1024.0)*13)
-puts voltage
+#puts voltage
 if (voltage<$VoltageCutoff&&voltage>2)
 
 puts "battery is low"
