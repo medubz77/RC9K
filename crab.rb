@@ -21,7 +21,7 @@ def initialize
 	$periter=[150,150,140,150,150,140,150,150,140,150,150,140,150,150,140,150,150,140]
 	$mc=MotorPower.new
 	$mc.check_switch
-
+$VoltageCutoff=8.5
 #def watcher
 #		mc.check_switch
 
@@ -121,7 +121,7 @@ voltage=voltage[18,22]
 voltage=voltage.to_i
 voltage= ((voltage/1024.0)*13)
 puts voltage
-if (voltage<8.5&&voltage!=0)
+if (voltage<$VoltageCutoff&&voltage!=0)
 puts "battery is low"
 $mc.motors_off
 end
