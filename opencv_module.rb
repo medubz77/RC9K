@@ -5,11 +5,9 @@ require "opencv"
 
 include OpenCV
 
-window = GUI::Window.new("face detect")
+window = GUI::Window.new("detect")
 capture = CvCapture.open
-capture.fps= 12
 #detector = CvHaarClassifierCascade::load("./data/haarcascades/haarcascade_frontalface_alt.xml")
-puts capture.fps
 loop {
   image = capture.query
 #  detector.detect_objects(image).each { |rect|
