@@ -7,7 +7,7 @@ result = exec("python GrabImage.py")
 original_window = GUI::Window.new "original"
 hough_window = GUI::Window.new "hough circles"
 
-image = IplImage::load "image.png"
+image = IplImage::load "./image.png"
 gray = image.BGR2GRAY
 
 result = image.clone
@@ -19,4 +19,4 @@ detect.each{|circle|
   result.circle! circle.center, circle.radius, :color => CvColor::Red, :thickness => 3
 }
 hough_window.show result
-GUI::wait_key
+GUI::wait_key(100)
