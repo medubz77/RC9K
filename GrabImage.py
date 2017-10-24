@@ -28,6 +28,7 @@ file = "/home/pi/rc9k/image.png"
 # correct format based on the file extension you provide. Convenient!
 cv2.imwrite(file, camera_capture)
 
+
 # You'll want to release the camera, otherwise you won't be able to create a new
 # capture object until your script exits
 del(camera)
