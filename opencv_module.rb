@@ -7,14 +7,14 @@ include OpenCV
 
 window = GUI::Window.new("face detect")
 capture = CvCapture.open
-capture.fps= = 12
+capture.fps= 12
 #detector = CvHaarClassifierCascade::load("./data/haarcascades/haarcascade_frontalface_alt.xml")
-
+puts capture.fps
 loop {
   image = capture.query
-  detector.detect_objects(image).each { |rect|
-    image.rectangle! rect.top_left, rect.bottom_right, :color => CvColor::Red
-  }
+#  detector.detect_objects(image).each { |rect|
+#    image.rectangle! rect.top_left, rect.bottom_right, :color => CvColor::Red
+#  }
   window.show image
   break if GUI::wait_key(100)
 }
