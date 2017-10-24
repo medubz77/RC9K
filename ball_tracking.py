@@ -53,7 +53,7 @@ while True:
 	# a series of dilations and erosions to remove any small
 	# blobs left in the mask
 	mask = cv2.inRange(hsv, greenLower, greenUpper)
-	cv2.imshow("Frame2", frame)
+	cv2.imshow("Frame2", mask)
 	mask = cv2.erode(mask, None, iterations=2)
 	mask = cv2.dilate(mask, None, iterations=2)
 
