@@ -7,7 +7,7 @@ system("python GrabImage.py") # This will return true
 #  exit
 #end
 
-data = '/home/pi/rc9k/opencv_data/haarcascades/haarcascade_frontalface_alt.xml'
+data = '/home/pi/rc9k/opencv_data/haarcascades_GPU/haarcascade_frontalface_alt.xml'
 detector = CvHaarClassifierCascade::load(data)
 #image = CvMat.load(ARGV[0])
 image = CvMat.load("image.png")
