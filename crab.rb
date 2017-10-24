@@ -123,7 +123,7 @@ voltage= ((voltage/1024.0)*13)
 if (voltage<10)
 puts "battery is low"
 mc.motors_off
-
+end
 
 	my_serial.close
 	my_serial = nil
