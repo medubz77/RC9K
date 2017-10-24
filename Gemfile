@@ -9,5 +9,5 @@ gem 'net-ssh'
 # Install ping support
 gem 'net-ping'
 gem 'sqlite3'
-#gem 'rpi_gpio', '~> 0.3.3'
-gem 'pi_piper'
+gem 'rpi_gpio', '~> 0.3.3'
+#gem 'pi_piper'
