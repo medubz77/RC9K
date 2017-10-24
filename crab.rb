@@ -119,7 +119,7 @@ voltage=my_serial.read(24)
 voltage=voltage[18,22]
 #puts voltage
 voltage=voltage.to_i
-puts ((voltage/1024)*13)
+puts ((voltage/1024.0)*13)
 	my_serial.close
 	my_serial = nil
 end
