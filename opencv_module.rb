@@ -1,5 +1,3 @@
-#!/usr/bin/env ruby
-# houghcircle.rb
 require "rubygems"
 require "opencv"
 include OpenCV
@@ -7,7 +5,7 @@ result = exec("python GrabImage.py")
 original_window = GUI::Window.new "original"
 hough_window = GUI::Window.new "hough circles"
 
-image = IplImage::load "./image.png"
+image = IplImage::load "image.png"
 gray = image.BGR2GRAY
 
 result = image.clone
