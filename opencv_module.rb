@@ -5,5 +5,5 @@ require 'file/tail'
 #number = (ARGV.pop || 0).to_i.abs
 filename = "./tmp/tempcamera.txt"
 File::Tail::Logfile.open(filename) do |log|
-  log.backward(10).tail { |line| puts line }
+  log.forward(10).tail { |line| puts line }
 end
