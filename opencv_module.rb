@@ -1,20 +1,21 @@
 require 'thread'
 class ReadData
-self.def startpython
-  runthis= Thread.new{
-something=exec("python ball_tracking.py")
-  }
-end
 
- self.def get_tempcamera_data
-runme = Thread.new{
-  while (true)
-    File.open("./tmp/tempcamera.txt").each do |line|
-      $rawcamera=line
-    end
-    sleep 0.25
+  def startpython
+  runthis= Thread.new{
+    something=exec("python ball_tracking.py")
+  }
   end
-}
-end
+
+ def get_tempcamera_data
+   runme = Thread.new{
+     while (true)
+       File.open("./tmp/tempcamera.txt").each do |line|
+         $rawcamera=line
+       end
+       sleep 0.25
+     end
+    }
+  end
 
 end
