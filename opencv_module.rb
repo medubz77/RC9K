@@ -1,5 +1,8 @@
+require "rubygems"
+require "filewatch/tail"
 
-output = `python ball_tracking.py`
-#while !output.blank?
-  puts "#{output}"
-#end
+t = FileWatch::Tail.new
+t.tail("./tmp/tempcamera.txt")
+t.subscribe do |path, line|
+  puts "#{path}: #{line}"
+end
