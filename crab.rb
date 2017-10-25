@@ -33,7 +33,10 @@ end
 def followtheball
 	rd=ReadData.new
 	puts "init-ed read data"
+	runpython = Thread.new{
 rd.startpython
+puts "started python"
+}
 puts "2, started python"
 runthegetter= Thread.new{
 	puts "running thread"
