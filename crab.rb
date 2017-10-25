@@ -478,7 +478,7 @@ when "wave"
 	end
 end
 
-end
+
 def testing(data)
 	crab = Crab.new
 	puts "#{data}"
