@@ -36,7 +36,7 @@ else:
 
 # keep looping
 
-outputs  = open(“tempcamera.txt”, “w”)
+outputs = open("tempcamera.txt","w")
 while True:
 	# grab the current frame
 	(grabbed, frame) = camera.read()
