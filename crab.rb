@@ -1,5 +1,6 @@
 # Require the library
 require 'rubyserial'
+require 'thread'
 # Require CSV for CSV functionality
 #require 'csv'
 #require 'socket' # Get sockets from stdlib
@@ -34,7 +35,10 @@ def followtheball
 	puts "init-ed read data"
 rd.startpython
 puts "2, started python"
+runthegetter= Thread.new{
+	puts "running thread"
 rd.get_tempcamera_data
+}
 puts "started, working on me"
 sleep 3
 puts "woke up from camera init"
