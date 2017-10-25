@@ -6,7 +6,7 @@ require 'rubyserial'
 #require 'socket' # Get sockets from stdlib
 #require_relative './server.rb'
 require './motor_control.rb'
-#require './opencv_module.rb'
+require './opencv_module.rb'
 class Crab
 # Instantiate global variables
 def initialize
@@ -24,7 +24,7 @@ def initialize
 	$rawcamera=nil
 	$mc=MotorPower.new
 	$mc.check_switch
-#rd=ReadData.new
+
 $VoltageCutoff=8.5
 #def watcher
 #		mc.check_switch
@@ -41,6 +41,7 @@ def followtheball
 #puts "2, started python"
 #runthegetter= Thread.new{
 #	puts "running thread"
+rd=ReadData.new
 	rd.get_tempcamera_data
 #}
 	puts "started, working on me"
