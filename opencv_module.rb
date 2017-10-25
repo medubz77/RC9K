@@ -1,1 +1,1 @@
-results = `tail -f ./tmp/tempcamera.txt`
+results = `tail -f /home/pi/rc9k/tmp/tempcamera.txt`
