@@ -25,7 +25,44 @@ $VoltageCutoff=8.5
 #def watcher
 #		mc.check_switch
 
-#end
+end
+
+def followtheball
+	x =240
+	size=300
+while size<150
+
+
+
+
+	if (x<200)&&(x>100)  #veer left
+		x=x-100
+		x=x/100.0
+		complex_walk(1,0.1,15,15,x,1)
+elsif x=<100    			#sharp veer left
+		x=(x+1)/101.0
+		x=1-x
+		x=x*-1
+		complex_walk(1,0.1,15,15,x,1)
+elsif (x>280)&&(x<380)   #veer right
+	if (x<200)&&(x>100)
+		x=x-100
+		x=x/100.0
+		complex_walk(1,0.1,15,15,1,x)
+	elsif x>=380				#sharpveerright
+			x=(x+1)/101.0
+			x=1-x
+			x=x*-1
+			complex_walk(1,0.1,15,15,1,x)
+		end
+
+
+end
+
+end
+
+
+
 
 
 
