@@ -31,7 +31,9 @@ end
 
 def followtheball
 	rd=ReadData.new
+	puts "init-ed read data"
 rd.startpython
+puts "2, started python"
 rd.get_tempcamera_data
 puts "started, working on me"
 sleep 3
