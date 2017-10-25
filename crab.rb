@@ -39,7 +39,7 @@ while size<150
 		x=x-100
 		x=x/100.0
 		complex_walk(1,0.1,15,15,x,1)
-elsif x=<100    			#sharp veer left
+elsif x<=100    			#sharp veer left
 		x=(x+1)/101.0
 		x=1-x
 		x=x*-1
