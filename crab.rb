@@ -74,10 +74,11 @@ while size<150
 					x=x*-1
 					complex_walk(1,0.1,15,15,x,1)
 				elsif (x>280)&&(x<380)   #veer right)
-					x=x-100
+					x=x-280
 					x=x/100.0
 					complex_walk(1,0.1,15,15,1,x)
-				elsif x>=380				#sharpveerright
+				elsif x>=380
+					x=x-380				#sharpveerright
 					x=(x+1)/101.0
 					x=1-x
 					x=x*-1
