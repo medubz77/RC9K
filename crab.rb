@@ -29,8 +29,9 @@ $VoltageCutoff=8.5
 end
 
 def followtheball
-ReadData.startpython
-ReadData.get_tempcamera_data
+	rd=ReadData.new
+rd.startpython
+rd.get_tempcamera_data
 sleep 3
 if $rawcamera==""
 	puts "no camera data"
