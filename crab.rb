@@ -51,6 +51,8 @@ rd=ReadData.new
 			puts "no camera data"
 			#return 0
 		end
+		size=100
+
 while size<150
 		xstring=$rawcamera[1,3]
 		x=xstring.to_i
