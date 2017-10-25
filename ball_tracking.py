@@ -102,8 +102,8 @@ while True:
 	# show the frame to our screen
 	cv2.imshow("Frame", frame)
 	key = cv2.waitKey(1) & 0xFF
-	outputs.write(center)
-	outputs.write(radius)
+	outputs.write(str(center))
+	outputs.write(str(radius))
 
 
 	# if the 'q' key is pressed, stop the loop
