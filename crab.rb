@@ -63,8 +63,10 @@ while size<150
 
 
 
+				if x=0
+					puts "Lost the ball"
 
-				if (x<200)&&(x>100)  #veer left
+				elsif (x<200)&&(x>100)  #veer left
 						x=x-100
 						x=x/100.0
 						complex_walk(1,0.1,15,15,x,1)
