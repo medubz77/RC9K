@@ -21,7 +21,7 @@ def initialize
 	$legs=[150,150,140,150,150,140,150,150,140,150,150,140,150,150,140,150,150,140]
 	$tomove=[150,150,140,150,150,140,150,150,140,150,150,140,150,150,140,150,150,140]
 	$periter=[150,150,140,150,150,140,150,150,140,150,150,140,150,150,140,150,150,140]
-	$rawcamera=""
+	$rawcamera=nil
 	$mc=MotorPower.new
 	$mc.check_switch
 $VoltageCutoff=8.5
@@ -45,7 +45,7 @@ rd.get_tempcamera_data
 puts "started, working on me"
 sleep 3
 puts "woke up from camera init"
-if $rawcamera==""
+if $rawcamera==nil
 	puts "no camera data"
 	return 0
 end
