@@ -1,3 +1,4 @@
+require 'thread'
 class ReadData
 def startpython
   runthis= Thread.new{
