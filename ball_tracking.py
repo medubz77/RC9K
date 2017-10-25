@@ -36,8 +36,9 @@ else:
 
 # keep looping
 
-outputs = open("tempcamera.txt","w")
+
 while True:
+
 	# grab the current frame
 	(grabbed, frame) = camera.read()
 
@@ -102,15 +103,16 @@ while True:
 	# show the frame to our screen
 	cv2.imshow("Frame", frame)
 	key = cv2.waitKey(1) & 0xFF
+	outputs = open("./tmp/tempcamera.txt","w")
 	outputs.write(str(center))
 	outputs.write(str(radius))
-
+	outputs.close()
 
 	# if the 'q' key is pressed, stop the loop
 	if key == ord("q"):
 		break
 print radius
 # cleanup the camera and close any open windows
-outputs.close()
+
 camera.release()
 cv2.destroyAllWindows()
