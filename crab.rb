@@ -24,6 +24,7 @@ def initialize
 	$rawcamera=nil
 	$mc=MotorPower.new
 	$mc.check_switch
+#rd=ReadData.new
 $VoltageCutoff=8.5
 #def watcher
 #		mc.check_switch
@@ -31,7 +32,7 @@ $VoltageCutoff=8.5
 end
 
 def followtheball
-	rd=ReadData.new
+
 	#puts "init-ed read data"
 	#runpython = Thread.new{
 #rd.startpython
@@ -40,51 +41,51 @@ def followtheball
 #puts "2, started python"
 #runthegetter= Thread.new{
 #	puts "running thread"
-rd.get_tempcamera_data
+	rd.get_tempcamera_data
 #}
-puts "started, working on me"
-sleep 3
-puts "woke up from camera init"
-if $rawcamera==nil
-	puts "no camera data"
-	return 0
-end
-
-xstring=$rawcamera[1,3]
-x=xstring.to_i
-	#x =240
-	puts $rawcamera
-	size=100
-while size<150
-
-
-
-
-	if (x<200)&&(x>100)  #veer left
-		x=x-100
-		x=x/100.0
-		complex_walk(1,0.1,15,15,x,1)
-elsif x<=100    			#sharp veer left
-		x=(x+1)/101.0
-		x=1-x
-		x=x*-1
-		complex_walk(1,0.1,15,15,x,1)
-elsif (x>280)&&(x<380)   #veer right)
-		x=x-100
-		x=x/100.0
-		complex_walk(1,0.1,15,15,1,x)
-	elsif x>=380				#sharpveerright
-			x=(x+1)/101.0
-			x=1-x
-			x=x*-1
-			complex_walk(1,0.1,15,15,1,x)
+	puts "started, working on me"
+	sleep 3
+	puts "woke up from camera init"
+		if $rawcamera==nil
+			puts "no camera data"
+			#return 0
 		end
 
+		xstring=$rawcamera[1,3]
+		x=xstring.to_i
+		#x =240
+		puts $rawcamera
+		size=100
+			while size<150
+
+
+
+
+				if (x<200)&&(x>100)  #veer left
+						x=x-100
+						x=x/100.0
+						complex_walk(1,0.1,15,15,x,1)
+				elsif x<=100    			#sharp veer left
+					x=(x+1)/101.0
+					x=1-x
+					x=x*-1
+					complex_walk(1,0.1,15,15,x,1)
+				elsif (x>280)&&(x<380)   #veer right)
+					x=x-100
+					x=x/100.0
+					complex_walk(1,0.1,15,15,1,x)
+				elsif x>=380				#sharpveerright
+					x=(x+1)/101.0
+					x=1-x
+					x=x*-1
+					complex_walk(1,0.1,15,15,1,x)
+				end
+
+
+			end
 
 end
 
-end
-end
 
 
 
