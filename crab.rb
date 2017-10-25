@@ -33,7 +33,9 @@ def followtheball
 	rd=ReadData.new
 rd.startpython
 rd.get_tempcamera_data
+puts "started, working on me"
 sleep 3
+puts "woke up from camera init"
 if $rawcamera==""
 	puts "no camera data"
 	return 0
