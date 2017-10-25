@@ -5,7 +5,6 @@ require 'rubyserial'
 #require 'socket' # Get sockets from stdlib
 #require_relative './server.rb'
 require './motor_control.rb'
-require './opencv_module.rb'
 class Crab
 # Instantiate global variables
 def initialize
@@ -20,6 +19,7 @@ def initialize
 	$legs=[150,150,140,150,150,140,150,150,140,150,150,140,150,150,140,150,150,140]
 	$tomove=[150,150,140,150,150,140,150,150,140,150,150,140,150,150,140,150,150,140]
 	$periter=[150,150,140,150,150,140,150,150,140,150,150,140,150,150,140,150,150,140]
+	$rawcamera=""
 	$mc=MotorPower.new
 	$mc.check_switch
 $VoltageCutoff=8.5
@@ -29,8 +29,19 @@ $VoltageCutoff=8.5
 end
 
 def followtheball
-	x =240
-	size=300
+ReadData.startpython
+ReadData.get_tempcamera_data
+sleep 3
+if $rawcamera==""
+	puts "no camera data"
+	return 0
+end
+
+xstring=$rawcamera[1,3]
+x=xstring.to_i
+	#x =240
+	puts $rawcamera
+	size=100
 while size<150
 
 
