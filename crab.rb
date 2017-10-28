@@ -63,7 +63,7 @@ while size<150
 
 
 
-				if x=0
+				if x==0
 					puts "Lost the ball"
 
 				elsif (x<200)&&(x>100)  #veer left
