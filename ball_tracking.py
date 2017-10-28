@@ -21,7 +21,11 @@ args = vars(ap.parse_args())
 # define the lower and upper boundaries of the "green"
 # ball in the HSV color space, then initialize the
 # list of tracked points
+<<<<<<< HEAD
 greenLower = (160, 140, 50)
+=======
+greenLower = (10, 255, 255)
+>>>>>>> master
 greenUpper = (179, 255, 255)
 pts = deque(maxlen=args["buffer"])
 
