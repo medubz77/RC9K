@@ -24,7 +24,7 @@ args = vars(ap.parse_args())
 
 greenLower = (160, 140, 50)
 
-greenUpper = (179, 255, 255)
+greenUpper = (179, 179, 255)
 pts = deque(maxlen=args["buffer"])
 
 # if a video path was not supplied, grab the reference
