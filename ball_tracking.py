@@ -101,7 +101,7 @@ while True:
 		cv2.line(frame, pts[i - 1], pts[i], (0, 0, 255), thickness)
 
 	# show the frame to our screen
-	#cv2.imshow("Frame", frame)
+	cv2.imshow("Frame", frame)
 	key = cv2.waitKey(1) & 0xFF
 	outputs = open("./tmp/tempcamera.txt","w")
 	outputs.write(str(center))
