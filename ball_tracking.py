@@ -22,7 +22,7 @@ args = vars(ap.parse_args())
 # ball in the HSV color space, then initialize the
 # list of tracked points
 greenLower = (115, 115, 255)
-greenUpper = (0,0, 255)
+greenUpper = (0, 0, 255)
 pts = deque(maxlen=args["buffer"])
 
 # if a video path was not supplied, grab the reference
@@ -105,7 +105,7 @@ while True:
 	key = cv2.waitKey(1) & 0xFF
 	outputs = open("./tmp/tempcamera.txt","w")
 	outputs.write(str(center))
-	outputs.write(str(radius))
+	#outputs.write(str(radius))
 	outputs.close()
 
 	# if the 'q' key is pressed, stop the loop
