@@ -23,9 +23,9 @@ args = vars(ap.parse_args())
 # list of tracked points
 
 #greenLower = (160, 140, 50)
-greenLower = (179,  50, 50)
+greenLower = (0,  50, 50)
 #greenUpper = (179,255,255)
-greenUpper =  (179, 255, 255)
+greenUpper =  (20, 255, 255)
 pts = deque(maxlen=args["buffer"])
 
 # if a video path was not supplied, grab the reference
