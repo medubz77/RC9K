@@ -51,7 +51,7 @@ while True:
 
 	# resize the frame, blur it, and convert it to the HSV
 	# color space
-	frame = imutils.resize(frame, width=480)
+	frame = imutils.resize(frame, width=240)
 	# blurred = cv2.GaussianBlur(frame, (11, 11), 0)
 	hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
@@ -60,8 +60,8 @@ while True:
 	# blobs left in the mask
 	mask = cv2.inRange(hsv, greenLower, greenUpper)
 	cv2.imshow("Frame2", mask)
-	#mask = cv2.erode(mask, None, iterations=2)
-	#mask = cv2.dilate(mask, None, iterations=2)
+	mask = cv2.erode(mask, None, iterations=1)
+	mask = cv2.dilate(mask, None, iterations=1)
 
 	# find contours in the mask and initialize the current
 	# (x, y) center of the ball
