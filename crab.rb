@@ -66,21 +66,21 @@ while size<150
 				if x==0
 					puts "Lost the ball"
 
-				elsif (x<200)&&(x>100)  #veer left
-						x=x-100
+				elsif (x<100)&&(x>50)  #veer left
+						x=x-50
 						x=x/100.0
 						complex_walk(1,0.1,15,15,x,1)
-				elsif x<=100    			#sharp veer left
-					x=(x+1)/101.0
+				elsif x<=50    			#sharp veer left
+					x=(x+1)/51.0
 					x=1-x
 					x=x*-1
 					complex_walk(1,0.1,15,15,x,1)
-				elsif (x>280)&&(x<380)   #veer right)
-					x=x-280
+				elsif (x>140)&&(x<190)   #veer right)
+					x=x-140
 					x=x/100.0
 					complex_walk(1,0.1,15,15,1,x)
-				elsif x>=380
-					x=x-380				#sharpveerright
+				elsif x>=190
+					x=x-190				#sharpveerright
 					x=(x+1)/101.0
 					x=1-x
 					x=x*-1
