@@ -13,9 +13,9 @@ detector = CvHaarClassifierCascade::load("#{facerec}")
 puts facerec
 loop {
   image = capture.query
-#  detector.detect_objects(image).each { |rect|
-#    image.rectangle! rect.top_left, rect.bottom_right, :color => CvColor::Red
-#  }
+  detector.detect_objects(image).each { |rect|
+    image.rectangle! rect.top_left, rect.bottom_right, :color => CvColor::Red
+  }
   window.show image
   break if GUI::wait_key(100)
 }
