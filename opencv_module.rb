@@ -1,4 +1,6 @@
 require 'thread'
+require 'opencv'
+include OpenCV
 class ReadData
 
   def startpython
@@ -17,5 +19,15 @@ class ReadData
      end
     }
   end
-
+  def CameraCap
+FPS = 30
+input = CvCapture.open
+win = GUI::Window.new 'video'
+loop do
+  img = input.query
+  win.show img
+  key = GUI.wait_key 1000 / FPS
+  break if key and key.chr == "\e"
+end
+  end
 end
