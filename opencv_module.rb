@@ -20,13 +20,13 @@ class ReadData
     }
   end
   def CameraCap
-    FPS = 30
+    fps = 30
     input = CvCapture.open
     win = GUI::Window.new 'video'
       loop do
         img = input.query
         win.show img
-        key = GUI.wait_key 1000 / FPS
+        key = GUI.wait_key 1000 / fps
         break if key and key.chr == "\e"
       end
   end
