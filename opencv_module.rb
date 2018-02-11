@@ -20,7 +20,7 @@ class ReadData
     }
   end
   def CameraCap
-    fps = 30
+    fps = 15
     input = CvCapture.open
     win = GUI::Window.new 'video'
       loop do
