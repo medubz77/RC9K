@@ -7,7 +7,7 @@ require 'rubyserial'
 #require_relative './server.rb'
 require './motor_control.rb'
 require './opencv_module.rb'
-class Crab
+class Crab < MotorPower
 # Instantiate global variables
 def initialize
 # Joint position constants
